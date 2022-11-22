@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "575750537711",
+    "project_id": "iuc-kitapp",
+    "storage_bucket": "iuc-kitapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575750537711:android:9a70d37fcbcfd10ec2761a",
+        "android_client_info": {
+          "package_name": "com.example.kitapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575750537711-6hqf4pq9etq4pbgs7m4ftnbs4d88a3jc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-zuMB2AnsSJE1gCR1tFwEpCnklNm11IY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575750537711-6hqf4pq9etq4pbgs7m4ftnbs4d88a3jc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
