@@ -17,6 +17,8 @@ dependencies:
   #firebase
   firebase_core: ^2.3.0
   firebase_auth: ^4.1.3
+  cloud_firestore: ^4.1.0
+  firebase_storage: ^11.0.6
 
   #cache
   hive: ^2.2.3
@@ -35,6 +37,8 @@ dependencies:
   json_annotation: ^4.7.0
   package_info_plus: ^3.0.2
   connectivity_plus: ^3.0.2
+  url_strategy: ^0.2.0
+  easy_localization: ^3.0.1
 
   #animations
   animate_do: ^2.1.0
@@ -62,13 +66,13 @@ dev_dependencies:
 flutter_native_splash:
   color: "#ffffff"
   color_dark: "#1a1a1a"
-  image: assets/splash.png
+  image: assets/png/splash.png
   anroid_gravity: fill
   ios_content_mode: scaleAspectFill
 
 flutter:
   uses-material-design: true
-  
+
   assets:
     - assets/svg/
     - assets/png/
