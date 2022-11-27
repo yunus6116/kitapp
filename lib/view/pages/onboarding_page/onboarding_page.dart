@@ -7,6 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kitapp/core/enums/app_images.dart';
 import 'package:kitapp/core/extensions/context_extensions.dart';
 import 'package:kitapp/core/extensions/list_extensions.dart';
+import 'package:kitapp/core/routing/router.gr.dart';
 import 'package:kitapp/view/shared/styles/colors.dart';
 
 import '../../../core/init/cache/cache_manager.dart';
@@ -66,6 +67,9 @@ class OnboardingPage extends HookConsumerWidget {
             duration: theme.normalDuration, curve: Curves.easeIn);
         ref.read(onBoardingVMProvider).setCurrentIntroIndex(2);
         return;
+      }
+      if (pageController.page?.round() == 2) {
+        context.router.replace(const MainRoute());
       }
       context.popRoute();
     }
