@@ -78,7 +78,7 @@ flutter_native_splash:
   color: "#ffffff"
   color_dark: "#1a1a1a"
   image: assets/png/splash.png
-  anroid_gravity: fill
+  android_gravity: fill
   ios_content_mode: scaleAspectFill
 
 flutter:
@@ -87,3 +87,4 @@ flutter:
   assets:
     - assets/svg/
     - assets/png/
+    - assets/translations/

@@ -17,12 +17,12 @@ import 'package:flutter/material.dart' as _i10;
 import 'package:kitapp/view/pages/main_page/explore_page/explore_page.dart'
     as _i7;
 import 'package:kitapp/view/pages/main_page/home_page/home_page.dart' as _i5;
-import 'package:kitapp/view/pages/main_page/main_page.dart' as _i3;
+import 'package:kitapp/view/pages/main_page/main_page.dart' as _i2;
 import 'package:kitapp/view/pages/main_page/my_profile_page/my_profile_page.dart'
     as _i8;
 import 'package:kitapp/view/pages/main_page/search_page/search_page.dart'
     as _i6;
-import 'package:kitapp/view/pages/onboarding_page/onboarding_page.dart' as _i2;
+import 'package:kitapp/view/pages/onboarding_page/onboarding_page.dart' as _i3;
 import 'package:kitapp/view/pages/splash_page/splash_page.dart' as _i1;
 
 class AppRouter extends _i9.RootStackRouter {
@@ -37,16 +37,16 @@ class AppRouter extends _i9.RootStackRouter {
         child: const _i1.SplashPage(),
       );
     },
-    OnboardingRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const _i2.OnboardingPage(),
-      );
-    },
     MainRoute.name: (routeData) {
       return _i9.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i3.MainPage(),
+        child: _i2.MainPage(),
+      );
+    },
+    OnboardingRoute.name: (routeData) {
+      return _i9.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.OnboardingPage(),
       );
     },
     HomeTabRouter.name: (routeData) {
@@ -106,10 +106,6 @@ class AppRouter extends _i9.RootStackRouter {
           path: '/',
         ),
         _i9.RouteConfig(
-          OnboardingRoute.name,
-          path: '/onboarding-page',
-        ),
-        _i9.RouteConfig(
           MainRoute.name,
           path: '/main-page',
           children: [
@@ -163,6 +159,10 @@ class AppRouter extends _i9.RootStackRouter {
             ),
           ],
         ),
+        _i9.RouteConfig(
+          OnboardingRoute.name,
+          path: '/onboarding-page',
+        ),
       ];
 }
 
@@ -179,19 +179,7 @@ class SplashRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.OnboardingPage]
-class OnboardingRoute extends _i9.PageRouteInfo<void> {
-  const OnboardingRoute()
-      : super(
-          OnboardingRoute.name,
-          path: '/onboarding-page',
-        );
-
-  static const String name = 'OnboardingRoute';
-}
-
-/// generated route for
-/// [_i3.MainPage]
+/// [_i2.MainPage]
 class MainRoute extends _i9.PageRouteInfo<void> {
   const MainRoute({List<_i9.PageRouteInfo>? children})
       : super(
@@ -201,6 +189,18 @@ class MainRoute extends _i9.PageRouteInfo<void> {
         );
 
   static const String name = 'MainRoute';
+}
+
+/// generated route for
+/// [_i3.OnboardingPage]
+class OnboardingRoute extends _i9.PageRouteInfo<void> {
+  const OnboardingRoute()
+      : super(
+          OnboardingRoute.name,
+          path: '/onboarding-page',
+        );
+
+  static const String name = 'OnboardingRoute';
 }
 
 /// generated route for

@@ -3,6 +3,7 @@ part of '../onboarding_page.dart';
 class _PageIndicators extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    const int indicatorCount = 3;
     final theme = ref.watch(themeProvider);
     final currentIntroIndex = ref
         .watch(onBoardingVMProvider.select((value) => value.currentIntroIndex));
@@ -21,7 +22,7 @@ class _PageIndicators extends HookConsumerWidget {
 
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children: List.generate(2, _buildCircle).withGap(10),
+      children: List.generate(indicatorCount, _buildCircle).withGap(10),
     );
   }
 }

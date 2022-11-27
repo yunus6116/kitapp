@@ -7,6 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kitapp/core/enums/app_images.dart';
 import 'package:kitapp/core/extensions/context_extensions.dart';
 import 'package:kitapp/core/extensions/list_extensions.dart';
+import 'package:kitapp/view/shared/styles/colors.dart';
 
 import '../../../core/init/cache/cache_manager.dart';
 import '../../../core/init/theme_manager/theme_manager.dart';
@@ -49,7 +50,7 @@ class OnboardingPage extends HookConsumerWidget {
         title: 'Book Has Power To Change Everything',
         description:
             'We have true friend in our life and the books is that. Book has power to chnage yourself and make you more valueable.',
-        imagePath: SvgImages.onboardingThird.path,
+        imagePath: PngImages.onboardingThird.path,
       ),
     ];
 
@@ -60,24 +61,34 @@ class OnboardingPage extends HookConsumerWidget {
         ref.read(onBoardingVMProvider).setCurrentIntroIndex(1);
         return;
       }
+      if (pageController.page?.round() == 1) {
+        pageController.nextPage(
+            duration: theme.normalDuration, curve: Curves.easeIn);
+        ref.read(onBoardingVMProvider).setCurrentIntroIndex(2);
+        return;
+      }
       context.popRoute();
     }
 
     return Scaffold(
+      backgroundColor: AppColors.onboardingBgColor,
       body: SafeArea(
         child: SizedBox.expand(
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Geri', style: AppTextStyles.heading1),
-                  TextButton(
-                      onPressed: context.popRoute,
-                      child: Text('Skip',
-                          style: AppTextStyles.textButton2
-                              .copyWith(color: theme.primary[600]))),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Geri', style: AppTextStyles.heading1),
+                    TextButton(
+                        onPressed: context.popRoute,
+                        child: Text('Skip',
+                            style: AppTextStyles.textButton2
+                                .copyWith(color: theme.primary[600]))),
+                  ],
+                ),
               ),
               Expanded(
                 flex: 4,

@@ -67,4 +67,5 @@ abstract class AppColors {
   static const Color gold900 = Color(0xff4C4000);
 
   static const Color iconGrayed = Color(0xFF9B9B9B);
+  static const Color onboardingBgColor = Color(0xFFF5F5F5);
 }

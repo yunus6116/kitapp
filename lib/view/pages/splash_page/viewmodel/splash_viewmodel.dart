@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:supercharged/supercharged.dart';
 
 import '../../../../core/init/auth_manager/auth_manager.dart';
+import '../../../../core/init/cache/cache_manager.dart';
 import '../../../../core/routing/router.gr.dart';
 import '../../../../core/routing/router_provider.dart';
 
@@ -17,7 +18,7 @@ class SplashVM extends ChangeNotifier {
   }
 
   void navigateUserAfterSplashDone(BuildContext context) {
-    Timer(4.seconds, () {
+    Timer(2.seconds, () {
       ref.read(authManagerProvider).currentUserModel?.uid != null &&
               ref
                   .read(authManagerProvider)

@@ -12,12 +12,7 @@ import '../../view/pages/splash_page/splash_page.dart';
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(
-      page: SplashPage,
-      initial: true,
-      path: "/",
-    ),
-    AutoRoute(page: OnboardingPage),
+    AutoRoute(page: SplashPage, initial: true),
     AutoRoute(page: MainPage, children: [
       AutoRoute(
         path: "home-tab",
@@ -52,6 +47,7 @@ import '../../view/pages/splash_page/splash_page.dart';
         ],
       )
     ]),
+    AutoRoute(page: OnboardingPage),
   ],
 )
 class $AppRouter {}

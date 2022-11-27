@@ -1,13 +1,12 @@
 import 'package:recase/recase.dart';
 
 enum PngImages {
-  example,
+  onboardingThird,
 }
 
 enum SvgImages {
   onboardingFirst,
   onboardingSecond,
-  onboardingThird,
 }
 
 enum LottieAnimation { loadingAnimation, searchAnimation, allAround }

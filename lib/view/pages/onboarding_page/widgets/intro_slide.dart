@@ -13,18 +13,24 @@ class _IntroSlide extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    const String lastImageName = 'third';
     return Column(
       children: [
         Expanded(
-          child: SvgPicture.asset(imagePath),
+          child: imagePath.contains(lastImageName)
+              ? Image.asset(imagePath)
+              : SvgPicture.asset(imagePath),
         ),
         Gap(context.responsiveHeight(12)),
         Text(title, style: AppTextStyles.heading2),
         Gap(context.responsiveHeight(12)),
-        Text(
-          description,
-          style: AppTextStyles.body2,
-          textAlign: TextAlign.center,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Text(
+            description,
+            style: AppTextStyles.body2,
+            textAlign: TextAlign.center,
+          ),
         ),
       ],
     );
