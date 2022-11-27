@@ -31,7 +31,7 @@ class SplashVM extends ChangeNotifier {
                   .isEmailVerified
           ? router.replace(const MainRoute())
           : seenOnboarding ?? false
-              ? router.replace(const MainRoute())
+              ? router.replace(const SignInRoute())
               : router.replace(const OnboardingRoute());
     });
   }

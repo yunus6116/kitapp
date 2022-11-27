@@ -10,6 +10,7 @@ import 'package:kitapp/core/extensions/list_extensions.dart';
 import 'package:kitapp/core/routing/router.gr.dart';
 import 'package:kitapp/view/shared/styles/colors.dart';
 
+import '../../../core/init/auth_manager/auth_manager.dart';
 import '../../../core/init/cache/cache_manager.dart';
 import '../../../core/init/theme_manager/theme_manager.dart';
 import '../../shared/styles/text_styles.dart';
@@ -71,7 +72,14 @@ class OnboardingPage extends HookConsumerWidget {
         return;
       }
       if (pageController.page?.round() == 2) {
-        context.router.replace(const MainRoute());
+        ref.read(authManagerProvider).currentUserModel?.uid != null &&
+                ref
+                    .read(authManagerProvider)
+                    .currentUserModel!
+                    .verifyStatus!
+                    .isEmailVerified
+            ? context.router.replace(const MainRoute())
+            : context.router.replace(const SignInRoute());
       }
       context.popRoute();
     }
@@ -87,12 +95,38 @@ class OnboardingPage extends HookConsumerWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Geri', style: AppTextStyles.heading1),
+                    currentIndex != 0
+                        ? IconButton(
+                            onPressed: () {
+                              if (pageController.page?.round() == 1) {
+                                pageController.previousPage(
+                                    duration: theme.normalDuration,
+                                    curve: Curves.easeIn);
+                                ref
+                                    .read(onBoardingVMProvider)
+                                    .setCurrentIntroIndex(0);
+                                return;
+                              }
+                              if (pageController.page?.round() == 2) {
+                                pageController.previousPage(
+                                    duration: theme.normalDuration,
+                                    curve: Curves.easeIn);
+                                ref
+                                    .read(onBoardingVMProvider)
+                                    .setCurrentIntroIndex(1);
+                                return;
+                              }
+                              context.popRoute();
+                            },
+                            icon: const Icon(Icons.arrow_back))
+                        : const SizedBox.shrink(),
                     TextButton(
-                        onPressed: context.popRoute,
+                        onPressed: () {
+                          context.popRoute();
+                        },
                         child: Text('Skip',
                             style: AppTextStyles.textButton2
-                                .copyWith(color: theme.primary[600]))),
+                                .copyWith(color: theme.primary))),
                   ],
                 ),
               ),
@@ -116,7 +150,7 @@ class OnboardingPage extends HookConsumerWidget {
               ),
               CustomButton(
                   width: double.infinity,
-                  buttonText: currentIndex == 2 ? 'Start' : 'Next',
+                  buttonText: currentIndex == 2 ? 'Get Started Now' : 'Next',
                   onPressed: onNextClick)
             ],
           ),

@@ -42,7 +42,7 @@ class ThemeManager extends ChangeNotifier with _IThemeManager {
 
   @override
   MaterialColor get primary => MaterialColor(
-        AppColors.killarney500.value,
+        AppColors.primary.value,
         const <int, Color>{
           50: AppColors.killarney50,
           100: AppColors.killarney100,

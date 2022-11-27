@@ -39,7 +39,7 @@ class NoNetworkWidget extends ConsumerWidget {
                   Expanded(
                     flex: 3,
                     child: Padding(
-                      padding: context.horizontalNormalPadding,
+                      padding: context.horizontalHighPadding,
                       child: Text(
                         "Bağlantı Yok",
                         style: context.textTheme.headline6
@@ -50,7 +50,7 @@ class NoNetworkWidget extends ConsumerWidget {
                   Expanded(
                       flex: 0,
                       child: Padding(
-                        padding: context.rightHorizontalLowPadding,
+                        padding: context.horizontalHighPadding,
                         child: const Icon(
                             Icons.signal_wifi_connected_no_internet_4,
                             color: Colors.white),

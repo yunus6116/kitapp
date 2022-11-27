@@ -73,6 +73,13 @@ dev_dependencies:
   freezed: ^2.2.1
   json_serializable: ^6.5.4
   build_runner: ^2.3.2
+  flutter_launcher_icons: ^0.11.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/logo.png"
+  min_sdk_android: 21 
 
 flutter_native_splash:
   color: "#ffffff"

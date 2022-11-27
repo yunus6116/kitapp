@@ -39,6 +39,8 @@ extension PaddingExtension on BuildContext {
       const EdgeInsets.symmetric(vertical: 10);
   EdgeInsetsGeometry get rightHorizontalLowPadding =>
       const EdgeInsets.only(right: 10);
+  EdgeInsetsGeometry get horizontalHighPadding =>
+      const EdgeInsets.symmetric(horizontal: 24);
 }
 
 extension SnackbarExtension on BuildContext {
