@@ -2,16 +2,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../global_models/public_user_model.dart';
+import '../../global_models/public_user/public_user_model.dart';
 import '../../global_providers/global_providers.dart';
 import '../../services/registration_services.dart';
 
 class AuthManager extends ChangeNotifier {
-  final Reader read;
+  final Ref ref;
   User? currentOnlineUser;
   PublicUser? currentUserModel;
 
-  AuthManager(this.read);
+  AuthManager(this.ref);
 
   void setCurrentOnlineUser(User? currentUser) {
     currentOnlineUser = currentUser;
@@ -24,12 +24,11 @@ class AuthManager extends ChangeNotifier {
   }
 }
 
-final authManagerProvider =
-    ChangeNotifierProvider((ref) => AuthManager(ref.read));
+final authManagerProvider = ChangeNotifierProvider((ref) => AuthManager(ref));
 
 final authStateChangesProvider = StreamProvider<User?>((ref) async* {
-  final _auth = ref.read(authProvider);
-  await for (final value in _auth.authStateChanges()) {
+  final auth = ref.read(authProvider);
+  await for (final value in auth.authStateChanges()) {
     ref.read(authManagerProvider).setCurrentOnlineUser(value);
     if (value != null) {
       final userModel = await ref
@@ -51,8 +50,8 @@ final userChangesProvider = StreamProvider.autoDispose<PublicUser>((ref) {
       .read(registrationServicesProvider)
       .listenUserChanges(currentUserModel!.uid!);
   return stream.map((snapshot) {
-    final _userModel = PublicUser.fromMap(snapshot.data());
-    ref.read(authManagerProvider).setCurrentUserModel(_userModel);
-    return _userModel;
+    final userModel = PublicUser.fromJson(snapshot.data());
+    ref.read(authManagerProvider).setCurrentUserModel(userModel);
+    return userModel;
   });
 });

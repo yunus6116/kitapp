@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,6 +9,8 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'core/global_providers/global_providers.dart';
+import 'core/routing/router.gr.dart';
+import 'core/routing/router_provider.dart';
 import 'firebase_options.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
@@ -21,20 +21,20 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   );
   await EasyLocalization.ensureInitialized();
 
-  final _appRouter = AppRouter();
-  final _fireStoreInstance = FirebaseFirestore.instance;
-  final _firebaseStorage = FirebaseStorage.instance;
-  final _auth = FirebaseAuth.instance;
+  final appRouter = AppRouter();
+  final fireStoreInstance = FirebaseFirestore.instance;
+  final firebaseStorage = FirebaseStorage.instance;
+  final auth = FirebaseAuth.instance;
   runApp(
     EasyLocalization(
       path: 'assets/translations',
       supportedLocales: const [Locale('en'), Locale('tr')],
       fallbackLocale: const Locale('en', 'tr'),
       child: ProviderScope(overrides: [
-        routerProvider.overrideWithValue(_appRouter),
-        fireStoreProvider.overrideWithValue(_fireStoreInstance),
-        firebaseStorageProvider.overrideWithValue(_firebaseStorage),
-        authProvider.overrideWithValue(_auth),
+        routerProvider.overrideWithValue(appRouter),
+        fireStoreProvider.overrideWithValue(fireStoreInstance),
+        firebaseStorageProvider.overrideWithValue(firebaseStorage),
+        authProvider.overrideWithValue(auth),
       ], child: await builder()),
     ),
   );

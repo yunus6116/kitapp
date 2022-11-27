@@ -1,9 +1,11 @@
 import 'dart:typed_data';
 
+import 'package:kitapp/core/extensions/snackbar_extension.dart';
+
 import '../global_providers/global_providers.dart';
-import '../globals/globals.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../global_constants/global_constants.dart';
 
 abstract class IStorageServices {
   Future<String> getPictureUrl(String path);
@@ -14,10 +16,10 @@ abstract class IStorageServices {
 
 class StorageServices extends IStorageServices {
   late FirebaseStorage _firebaseStorage;
-  final Reader read;
+  final Ref ref;
 
-  StorageServices(this.read) {
-    _firebaseStorage = read(firebaseStorageProvider);
+  StorageServices(this.ref) {
+    _firebaseStorage = ref.read(firebaseStorageProvider);
   }
 
   @override
@@ -30,7 +32,8 @@ class StorageServices extends IStorageServices {
     try {
       Reference storageReference = _firebaseStorage.ref().child(storagePath);
       var imagePath = storageReference
-          .putData(image, SettableMetadata(customMetadata: {"contentType": 'image/jpg'}))
+          .putData(image,
+              SettableMetadata(customMetadata: {"contentType": 'image/jpg'}))
           .snapshot
           .ref
           .fullPath;
@@ -38,7 +41,7 @@ class StorageServices extends IStorageServices {
 
       return imagePath;
     } catch (e) {
-      snackbarKey.showSnackBar(message: e.toString());
+      snackBarKey.showSnackBar(message: e.toString());
       rethrow;
     }
   }
@@ -50,7 +53,7 @@ class StorageServices extends IStorageServices {
       storageReference = _firebaseStorage.ref().child(storagePath);
       await storageReference.delete();
     } catch (e) {
-      snackbarKey.showSnackBar(message: e.toString());
+      snackBarKey.showSnackBar(message: e.toString());
       rethrow;
     }
   }
@@ -61,17 +64,17 @@ class StorageServices extends IStorageServices {
       Reference storageReference;
 
       storageReference = _firebaseStorage.ref().child(storagePath);
-      TaskSnapshot imagePathSnapshot = await storageReference.putData(
-          image, SettableMetadata(customMetadata: {"contentType": 'image/jpg'}));
+      TaskSnapshot imagePathSnapshot = await storageReference.putData(image,
+          SettableMetadata(customMetadata: {"contentType": 'image/jpg'}));
       String fullPath = imagePathSnapshot.storage.ref().fullPath;
       String imagePath = fullPath[0] != '/' ? '/$fullPath' : fullPath;
 
       return imagePath;
     } catch (e) {
-      snackbarKey.showSnackBar(message: e.toString());
+      snackBarKey.showSnackBar(message: e.toString());
       rethrow;
     }
   }
 }
 
-final storageServicesProvider = Provider((ref) => StorageServices(ref.read));
+final storageServicesProvider = Provider((ref) => StorageServices(ref));

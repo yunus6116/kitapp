@@ -1,28 +1,51 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:kitapp/bootstrap.dart';
+import 'package:kitapp/view/pages/main_page/home_page/utils/utils.dart';
+import 'package:kitapp/view/shared/styles/theme.dart';
+import 'package:kitapp/view/shared/widgets/focus_escape.dart';
+import 'package:kitapp/view/shared/widgets/main_build.dart';
+
+import 'core/global_constants/global_constants.dart';
+import 'core/init/auth_manager/auth_manager.dart';
+import 'core/routing/router_provider.dart';
+import 'env.dart';
 
 void main() async {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+  bootstrap(() => const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends HookConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authStateChangesStreamProvider = ref.watch(authStateChangesProvider);
+    return authStateChangesStreamProvider.when(
+      data: (_) => FocusEscape(
+        child: MaterialApp.router(
+          scaffoldMessengerKey: snackBarKey,
+          supportedLocales: context.supportedLocales,
+          localizationsDelegates: context.localizationDelegates,
+          locale: context.locale,
+          color: Colors.green,
+          routeInformationParser: ref.read(routerProvider).defaultRouteParser(),
+          routerDelegate: ref.read(routerProvider).delegate(),
+          debugShowCheckedModeBanner: false,
+          scrollBehavior: NoGlowScrollBehavior(),
+          theme: ThemeStyle.customThemeData(),
+          title: Environment.appTitle,
+          builder: MainBuild.build,
         ),
-        body: const Center(
-          child: Text('Hello World'),
+      ),
+      error: (e, __) {
+        debugPrint(e.toString());
+        return const SizedBox();
+      },
+      loading: () => const Center(
+        child: CircularProgressIndicator(
+          color: Colors.red,
         ),
       ),
     );
