@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:supercharged/supercharged.dart';
 
@@ -17,8 +18,11 @@ class SplashVM extends ChangeNotifier {
     router = ref.read(routerProvider);
   }
 
-  void navigateUserAfterSplashDone(BuildContext context) {
-    Timer(2.seconds, () {
+  Future<void> navigateUserAfterSplashDone(BuildContext context) async {
+    Future.delayed(const Duration(seconds: 4), () {
+      bool? seenOnboarding = ref
+          .read(cacheManagerProvider)
+          .readFromBox<bool>(BoxKey.seenOnboardingPages);
       ref.read(authManagerProvider).currentUserModel?.uid != null &&
               ref
                   .read(authManagerProvider)
@@ -26,7 +30,9 @@ class SplashVM extends ChangeNotifier {
                   .verifyStatus!
                   .isEmailVerified
           ? router.replace(const MainRoute())
-          : router.replace(const OnboardingRoute());
+          : seenOnboarding ?? false
+              ? router.replace(const MainRoute())
+              : router.replace(const OnboardingRoute());
     });
   }
 }

@@ -26,6 +26,8 @@ class OnboardingPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
     final pageController = usePageController();
+    final currentIndex = ref
+        .watch(onBoardingVMProvider.select((value) => value.currentIntroIndex));
 
     useEffect(() {
       ref
@@ -50,7 +52,7 @@ class OnboardingPage extends HookConsumerWidget {
       _IntroSlide(
         title: 'Book Has Power To Change Everything',
         description:
-            'We have true friend in our life and the books is that. Book has power to chnage yourself and make you more valueable.',
+            'We have true friend in our life and the books is that. Book has power to change yourself and make you more valueable.',
         imagePath: PngImages.onboardingThird.path,
       ),
     ];
@@ -114,7 +116,7 @@ class OnboardingPage extends HookConsumerWidget {
               ),
               CustomButton(
                   width: double.infinity,
-                  buttonText: 'Next',
+                  buttonText: currentIndex == 2 ? 'Start' : 'Next',
                   onPressed: onNextClick)
             ],
           ),

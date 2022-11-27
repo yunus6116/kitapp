@@ -20,8 +20,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     await Hive.openBox(BoxType.generalBox.name);
   }
 
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await _openHiveBoxes();
   await Firebase.initializeApp(

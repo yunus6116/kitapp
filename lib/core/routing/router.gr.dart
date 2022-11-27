@@ -34,7 +34,7 @@ class AppRouter extends _i9.RootStackRouter {
     SplashRoute.name: (routeData) {
       return _i9.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i1.SplashPage(),
+        child: _i1.SplashPage(),
       );
     },
     MainRoute.name: (routeData) {
