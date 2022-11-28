@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kitapp/core/extensions/context_extensions.dart';
 import 'package:kitapp/view/shared/styles/colors.dart';
 
 class AppTextStyles {
@@ -56,15 +57,22 @@ class AppTextStyles {
   // text underlined
   static TextStyle textUnderlined = _getTextStyle(14, FontWeight.w500)
       .copyWith(decoration: TextDecoration.underline);
-  
 
   // special
   static TextStyle special = _specialTextStyle(48, FontWeight.w400);
 
+  static TextStyle tertiaryButtonText(BuildContext context) {
+    return TextStyle(
+      fontSize: context.screenAwareSize(11),
+      fontWeight: FontWeight.w500,
+      color: const Color(0xFF606060),
+    );
+  }
+
   static TextStyle _getTextStyle(double fontSize, FontWeight fontWeight,
           {double? height, Color color = AppColors.dustyGray800}) =>
       TextStyle(
-        fontFamily: 'HKGrotesk',
+          fontFamily: 'HKGrotesk',
           fontSize: fontSize,
           fontWeight: fontWeight,
           height: height ?? 1.2,

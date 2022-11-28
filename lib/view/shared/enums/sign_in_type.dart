@@ -1,1 +1,1 @@
-enum SignInType { mailSignIn, googleSignIn, appleSignIn }
+enum SignInType { mailSignIn }

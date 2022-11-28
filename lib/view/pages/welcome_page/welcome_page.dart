@@ -35,7 +35,7 @@ class WelcomePage extends StatelessWidget {
               borderRadius: 11,
               showShadow: true,
               onPressed: () async {
-                await context.router.navigate(const SignInRoute());
+                await context.router.navigate(SignInRoute());
               },
             ),
           ],

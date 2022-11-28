@@ -41,6 +41,8 @@ extension PaddingExtension on BuildContext {
       const EdgeInsets.only(right: 10);
   EdgeInsetsGeometry get horizontalHighPadding =>
       const EdgeInsets.symmetric(horizontal: 24);
+  double screenAwareSize(double val) =>
+      (val * 1.143) * (MediaQuery.of(this).size.width / 375);
 }
 
 extension SnackbarExtension on BuildContext {

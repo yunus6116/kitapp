@@ -58,9 +58,11 @@ class AppRouter extends _i11.RootStackRouter {
       );
     },
     SignInRoute.name: (routeData) {
+      final args = routeData.argsAs<SignInRouteArgs>(
+          orElse: () => const SignInRouteArgs());
       return _i11.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i5.SignInPage(),
+        child: _i5.SignInPage(key: args.key),
       );
     },
     HomeTabRouter.name: (routeData) {
@@ -239,14 +241,26 @@ class WelcomeRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.SignInPage]
-class SignInRoute extends _i11.PageRouteInfo<void> {
-  const SignInRoute()
+class SignInRoute extends _i11.PageRouteInfo<SignInRouteArgs> {
+  SignInRoute({_i12.Key? key})
       : super(
           SignInRoute.name,
           path: '/sign-in-page',
+          args: SignInRouteArgs(key: key),
         );
 
   static const String name = 'SignInRoute';
+}
+
+class SignInRouteArgs {
+  const SignInRouteArgs({this.key});
+
+  final _i12.Key? key;
+
+  @override
+  String toString() {
+    return 'SignInRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

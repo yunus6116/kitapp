@@ -93,7 +93,7 @@ extension StringExtensions on String {
 extension ValidationExtensions on String {
   String? hasMinLengthOf(int minLength) => length >= minLength
       ? null
-      : "Bu alan en az $minLength karakter içermelidir";
+      : "This field must contain at least $minLength characters.";
 
   String? hasEqualLengthOf(int equalLength) => length == equalLength
       ? null
@@ -109,7 +109,7 @@ extension ValidationExtensions on String {
       : "Bu alan $exactLength karakterden oluşmalıdır";
 
   String? hasData({String? fieldName, String? errorText}) =>
-      isNotEmpty ? null : (errorText ?? "$fieldName girilmesi zorunludur.");
+      isNotEmpty ? null : (errorText ?? "$fieldName is required");
 
   String? isInList(List<String> stringList, String? errorText) =>
       stringList.contains(this)
