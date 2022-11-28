@@ -9,6 +9,7 @@ import 'package:kitapp/view/shared/styles/text_styles.dart';
 import 'package:kitapp/view/shared/widgets/custom_appbar.dart';
 import 'package:kitapp/view/shared/widgets/custom_button.dart';
 
+import '../../../core/routing/router.gr.dart';
 import '../../shared/enums/sign_in_type.dart';
 import '../../shared/widgets/controlled_textfield.dart';
 import '../../../core/extensions/string_extensions.dart';
@@ -91,12 +92,14 @@ class SignInPage extends HookConsumerWidget {
                       height: 55,
                       borderRadius: 11,
                       onPressed: () async {
-                        if (formKey.currentState!.validate()) {
-                          await ref.read(signInVMProvider).signIn(
-                                context,
-                                SignInType.mailSignIn,
-                              );
-                        }
+                        await context.router.pushAndPopUntil(const MainRoute(),
+                            predicate: (_) => false);
+                        // if (formKey.currentState!.validate()) {
+                        //   await ref.read(signInVMProvider).signIn(
+                        //         context,
+                        //         SignInType.mailSignIn,
+                        //       );
+                        // }
                       },
                     ),
                     const SizedBox(height: 32),
