@@ -38,6 +38,8 @@ class AppTextStyles {
 
   // bottomNavBar
   static TextStyle bottomNavBar = _getTextStyle(14, FontWeight.w500);
+  // bottomNavBar
+  static TextStyle forgotPassword = _getTextStyle(15, FontWeight.w500);
 
   // CTA Text
   static TextStyle ctaText = _getTextStyle(14, FontWeight.w700);
@@ -54,13 +56,15 @@ class AppTextStyles {
   // text underlined
   static TextStyle textUnderlined = _getTextStyle(14, FontWeight.w500)
       .copyWith(decoration: TextDecoration.underline);
+  
 
   // special
   static TextStyle special = _specialTextStyle(48, FontWeight.w400);
 
   static TextStyle _getTextStyle(double fontSize, FontWeight fontWeight,
           {double? height, Color color = AppColors.dustyGray800}) =>
-      GoogleFonts.openSans(
+      TextStyle(
+        fontFamily: 'HKGrotesk',
           fontSize: fontSize,
           fontWeight: fontWeight,
           height: height ?? 1.2,

@@ -7,7 +7,10 @@ class ExplorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(title: 'Explore Page'),
+      appBar: CustomAppbar(
+        title: 'Explore Page',
+        showBackButton: false,
+      ),
     );
   }
 }

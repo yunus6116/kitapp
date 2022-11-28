@@ -4,7 +4,7 @@ import 'colors.dart';
 
 class ThemeStyle {
   static ThemeData customThemeData() {
-    const _fontFamily = "Avenir";
+    const _fontFamily = "HKGrotesk";
     AppBarTheme _getAppBarTheme() => const AppBarTheme(
         color: Colors.white,
         elevation: 0.7,

@@ -27,6 +27,7 @@ abstract class _IThemeManager {
   List<BoxShadow> get cardShadow;
   List<BoxShadow> get smallShadow;
   List<BoxShadow> get bottomBarShadow;
+  List<BoxShadow> get buttonShadow;
   EdgeInsets get pagePadding;
   EdgeInsets get horizontalPagePadding;
 }
@@ -193,6 +194,15 @@ class ThemeManager extends ChangeNotifier with _IThemeManager {
           color: Color.fromRGBO(51, 51, 51, .12),
           offset: Offset(0, -2),
           blurRadius: 9,
+        )
+      ];
+  @override
+  List<BoxShadow> get buttonShadow => [
+        const BoxShadow(
+          color: Color.fromRGBO(149, 149, 149, .25),
+          offset: Offset(0, 4),
+          blurRadius: 20,
+          spreadRadius: 0,
         )
       ];
 }

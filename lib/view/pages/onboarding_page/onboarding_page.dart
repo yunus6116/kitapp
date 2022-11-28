@@ -79,7 +79,7 @@ class OnboardingPage extends HookConsumerWidget {
                     .verifyStatus!
                     .isEmailVerified
             ? context.router.replace(const MainRoute())
-            : context.router.replace(const SignInRoute());
+            : context.router.replace(const WelcomeRoute());
       }
       context.popRoute();
     }
@@ -121,17 +121,24 @@ class OnboardingPage extends HookConsumerWidget {
                             icon: const Icon(Icons.arrow_back))
                         : const SizedBox.shrink(),
                     TextButton(
-                        onPressed: () {
-                          context.popRoute();
-                        },
-                        child: Text('Skip',
-                            style: AppTextStyles.textButton2
-                                .copyWith(color: theme.primary))),
+                      onPressed: () {
+                        context.popRoute();
+                      },
+                      child: TextButton(
+                        onPressed: (() async {
+                          await context.router.navigate(const WelcomeRoute());
+                        }),
+                        child: Text(
+                          'Skip',
+                          style: AppTextStyles.textButton2,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
               Expanded(
-                flex: 4,
+                flex: 8,
                 child: Padding(
                   padding:
                       EdgeInsets.only(bottom: context.responsiveHeight(22)),
@@ -149,9 +156,11 @@ class OnboardingPage extends HookConsumerWidget {
                 flex: 1,
               ),
               CustomButton(
-                  width: double.infinity,
-                  buttonText: currentIndex == 2 ? 'Get Started Now' : 'Next',
-                  onPressed: onNextClick)
+                width: MediaQuery.of(context).size.width / 1.5,
+                backgroundColor: AppColors.primary,
+                buttonText: currentIndex == 2 ? 'Get Started Now' : 'Next',
+                onPressed: onNextClick,
+              )
             ],
           ),
         ),

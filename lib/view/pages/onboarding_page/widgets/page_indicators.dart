@@ -13,10 +13,10 @@ class _PageIndicators extends HookConsumerWidget {
           width: 12,
           height: 12,
           decoration: BoxDecoration(
-              border: Border.all(color: theme.primary[400]!),
+              border: Border.all(color: theme.primary),
               shape: BoxShape.circle,
               color: index == currentIntroIndex
-                  ? theme.primary[400]!
+                  ? theme.primary
                   : theme.scaffoldBackground),
         );
 

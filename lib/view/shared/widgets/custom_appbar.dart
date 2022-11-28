@@ -38,7 +38,7 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
       automaticallyImplyLeading: showBackButton!,
       leading: leadingIcon,
       iconTheme: context.theme.iconTheme.copyWith(color: Colors.black),
-      elevation: elevation ?? 1,
+      elevation: elevation ?? 0,
       actions: [
         dropdownMenu ?? const SizedBox(),
         if (onIconPressed != null)

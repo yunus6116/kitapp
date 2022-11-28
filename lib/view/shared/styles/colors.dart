@@ -6,6 +6,8 @@ abstract class AppColors {
 
   static const Color shadowGreen = Color(0xff98CDB0);
 
+  static const Color whiteButtonColor = Color(0xFFF2F2F2);
+
   static const Color primary = Color(0xFFDE7773);
 
   ///Added on 20.08.2022 new color update

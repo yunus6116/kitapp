@@ -7,7 +7,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(title: 'Home Page'),
+      appBar: CustomAppbar(
+        title: 'Home Page',
+        showBackButton: false,
+      ),
     );
   }
 }

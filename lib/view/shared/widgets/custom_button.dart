@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:kitapp/core/extensions/context_extensions.dart';
 
 import '../../../core/init/theme_manager/theme_manager.dart';
 import '../styles/text_styles.dart';
 
 class CustomButton extends HookConsumerWidget {
   final String buttonText;
-  final bool isDisabled;
+  final bool isDisabled, showShadow;
   final Function onPressed;
   final bool? isLoading;
   final bool showBorder;
@@ -22,6 +23,7 @@ class CustomButton extends HookConsumerWidget {
     required this.buttonText,
     required this.onPressed,
     this.isDisabled = false,
+    this.showShadow = false,
     this.isLoading,
     this.borderRadius = 6,
     this.width,
@@ -67,21 +69,40 @@ class CustomButton extends HookConsumerWidget {
         width: width,
         margin: margin ?? EdgeInsets.zero,
         height: height!,
-        padding: padding ?? (width == null ? const EdgeInsets.symmetric(horizontal: 10) : EdgeInsets.zero),
+        padding: padding ??
+            (width == null
+                ? const EdgeInsets.symmetric(horizontal: 10)
+                : EdgeInsets.zero),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadius!),
-            border: showBorder ? Border.all(color: borderColor ?? theme.primary.shade600) : null,
-            color: isDisabled
-                ? (backgroundColor != null && backgroundColor != Colors.transparent
-                    ? backgroundColor!.withOpacity(0.4)
-                    : Colors.transparent)
-                : (backgroundColor ?? theme.primary[600])),
+          boxShadow: showShadow
+              ? const [
+                  BoxShadow(
+                    color: Color.fromRGBO(149, 149, 149, .25),
+                    offset: Offset(0, 4),
+                    blurRadius: 20,
+                  )
+                ]
+              : null,
+          borderRadius: BorderRadius.circular(borderRadius!),
+          border: showBorder
+              ? Border.all(color: borderColor ?? theme.primary.shade600)
+              : null,
+          color: isDisabled
+              ? (backgroundColor != null &&
+                      backgroundColor != Colors.transparent
+                  ? backgroundColor!.withOpacity(0.4)
+                  : Colors.transparent)
+              : (backgroundColor ?? theme.primary[600]),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: isLoading ?? isButtonLoading.value
-              ? [CircularProgressIndicator(color: progressIndicatorColor ?? theme.scaffoldBackground)]
+              ? [
+                  CircularProgressIndicator(
+                      color: progressIndicatorColor ?? theme.scaffoldBackground)
+                ]
               : [
                   if (icon != null)
                     Padding(
@@ -92,8 +113,9 @@ class CustomButton extends HookConsumerWidget {
                     child: Text(
                       buttonText,
                       style: buttonTextStyle ??
-                          AppTextStyles.textButton1
-                              .copyWith(color: buttonTextColor.withOpacity(isDisabled ? 0.6 : 1)),
+                          AppTextStyles.textButton1.copyWith(
+                              color: buttonTextColor
+                                  .withOpacity(isDisabled ? 0.6 : 1)),
                       textAlign: TextAlign.center,
                     ),
                   ),

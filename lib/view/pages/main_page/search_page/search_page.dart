@@ -7,7 +7,10 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(title: 'Search Page'),
+      appBar: CustomAppbar(
+        title: 'Search Page',
+        showBackButton: false,
+      ),
     );
   }
 }

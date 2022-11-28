@@ -91,6 +91,11 @@ flutter_native_splash:
 flutter:
   uses-material-design: true
 
+  fonts:
+      - family: HKGrotesk
+        fonts:
+          - asset: assets/fonts/HKGrotesk-Medium.ttf
+
   assets:
     - assets/svg/
     - assets/png/
