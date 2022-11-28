@@ -27,7 +27,7 @@ class WelcomePage extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             CustomButton(
-              buttonText: 'I\'m already a Kitapper',
+              buttonText: 'I\'m already a Kitapper 👌🏻',
               backgroundColor: AppColors.whiteButtonColor,
               width: MediaQuery.of(context).size.width - 40,
               textColor: AppColors.primary,

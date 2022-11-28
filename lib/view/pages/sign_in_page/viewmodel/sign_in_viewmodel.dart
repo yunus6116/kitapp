@@ -49,11 +49,11 @@ class SignInVM extends ChangeNotifier {
       switch (signInType) {
         case SignInType.mailSignIn:
           try {
-            await ref.read(registrationServicesProvider).signOut();
-            UserCredential? userCredential = await ref
-                .read(registrationServicesProvider)
-                .signInWithMail(
-                    emailController.text.trim(), passwordController.text);
+            // await ref.read(registrationServicesProvider).signOut();
+            // UserCredential? userCredential = await ref
+            //     .read(registrationServicesProvider)
+            //     .signInWithMail(
+            //         emailController.text.trim(), passwordController.text);
             await router.pushAndPopUntil(const MainRoute(),
                 predicate: (_) => false);
             // if (ref

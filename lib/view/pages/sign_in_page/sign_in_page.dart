@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kitapp/core/extensions/context_extensions.dart';
-import 'package:kitapp/core/routing/router.gr.dart';
 import 'package:kitapp/view/pages/sign_in_page/viewmodel/sign_in_viewmodel.dart';
 import 'package:kitapp/view/shared/styles/colors.dart';
 import 'package:kitapp/view/shared/styles/text_styles.dart';
@@ -13,7 +12,6 @@ import 'package:kitapp/view/shared/widgets/custom_button.dart';
 import '../../shared/enums/sign_in_type.dart';
 import '../../shared/widgets/controlled_textfield.dart';
 import '../../../core/extensions/string_extensions.dart';
-import 'constants/sign_in_constants.dart';
 
 class SignInPage extends HookConsumerWidget {
   SignInPage({super.key});
@@ -80,7 +78,7 @@ class SignInPage extends HookConsumerWidget {
                       contentPadding: const EdgeInsets.all(20),
                       validate: (value) {
                         if (value == "") {
-                          return value?.hasData(fieldName: "Parola");
+                          return value?.hasData(fieldName: "Password");
                         }
                         return value?.hasMinLengthOf(6);
                       },
