@@ -4,11 +4,11 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/core/enums/app_images.dart';
-import 'package:kitapp/core/extensions/context_extensions.dart';
-import 'package:kitapp/core/extensions/list_extensions.dart';
-import 'package:kitapp/core/routing/router.gr.dart';
-import 'package:kitapp/view/shared/styles/colors.dart';
+import '../../../core/enums/app_images.dart';
+import '../../../core/extensions/context_extensions.dart';
+import '../../../core/extensions/list_extensions.dart';
+import '../../../core/routing/router.gr.dart';
+import '../../shared/styles/colors.dart';
 
 import '../../../core/init/auth_manager/auth_manager.dart';
 import '../../../core/init/cache/cache_manager.dart';

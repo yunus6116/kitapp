@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 import '../../../core/init/auth_manager/auth_manager.dart';
 import 'app_icons.dart';
 import 'package:flutter/material.dart';

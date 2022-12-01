@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:kitapp/core/extensions/snackbar_extension.dart';
+import '../extensions/snackbar_extension.dart';
 
 import '../global_providers/global_providers.dart';
 import 'package:firebase_storage/firebase_storage.dart';

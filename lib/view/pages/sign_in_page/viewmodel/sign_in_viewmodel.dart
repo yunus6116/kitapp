@@ -1,6 +1,5 @@
-import 'package:kitapp/core/extensions/snackbar_extension.dart';
-import 'package:kitapp/core/global_constants/global_constants.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+import '../../../../core/extensions/snackbar_extension.dart';
+import '../../../../core/global_constants/global_constants.dart';
 
 import '../../../../core/init/auth_manager/auth_manager.dart';
 import '../../../shared/styles/colors.dart';
@@ -11,8 +10,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../../core/routing/router.gr.dart';
 import '../../../../core/routing/router_provider.dart';
 import '../../../../core/services/registration_services.dart';
-import '../../../shared/enums/sign_in_type.dart';
-import '../../../shared/widgets/button/tertiary_button.dart';
 import '../../../shared/widgets/custom_snackbar.dart';
 import '../constants/sign_in_constants.dart';
 import '../model/sign_in_model.dart';
@@ -39,10 +36,6 @@ class SignInVM extends ChangeNotifier {
     passwordController.dispose();
     super.dispose();
   }
-
-  // Future<void> navigateToSignUpPage() async {
-  //   await router.navigate(const SignUpRoute());
-  // }
 
   Future<void> signIn() async {
     try {

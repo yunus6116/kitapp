@@ -1,4 +1,4 @@
-import 'package:kitapp/core/global_models/public_user/verify_status_model.dart';
+import '../global_models/public_user/verify_status_model.dart';
 import '../../view/pages/sign_up_page/viewmodel/sign_up_viewmodel.dart';
 import '../enums/collection_name.dart';
 import '../global_models/public_user/public_user_model.dart';

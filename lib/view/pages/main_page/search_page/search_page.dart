@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kitapp/view/shared/widgets/custom_appbar.dart';
+import '../../../shared/widgets/custom_appbar.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});

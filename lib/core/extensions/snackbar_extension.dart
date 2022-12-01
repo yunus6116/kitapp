@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:kitapp/view/shared/widgets/custom_snackbar.dart';
+import '../../view/shared/widgets/custom_snackbar.dart';
 
-import '../global_constants/global_constants.dart';
+final GlobalKey<ScaffoldMessengerState> snackbarKey =
+    GlobalKey<ScaffoldMessengerState>();
 
 extension SnackbarExtension on dynamic {
   showSnackBar({
@@ -45,8 +46,8 @@ extension SnackbarExtension on dynamic {
       ScaffoldMessenger.of(this).showSnackBar(showSnackBar());
     }
     if (this is GlobalKey) {
-      snackBarKey.currentState?.clearSnackBars();
-      snackBarKey.currentState?.showSnackBar(showSnackBar());
+      snackbarKey.currentState?.clearSnackBars();
+      snackbarKey.currentState?.showSnackBar(showSnackBar());
     }
   }
 }

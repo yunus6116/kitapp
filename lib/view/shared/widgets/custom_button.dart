@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/core/extensions/context_extensions.dart';
 
 import '../../../core/init/theme_manager/theme_manager.dart';
 import '../styles/text_styles.dart';
