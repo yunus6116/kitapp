@@ -5,12 +5,12 @@ import 'package:kitapp/bootstrap.dart';
 import 'package:kitapp/view/pages/main_page/home_page/utils/utils.dart';
 import 'package:kitapp/view/shared/styles/theme.dart';
 import 'package:kitapp/view/shared/widgets/focus_escape.dart';
-import 'package:kitapp/view/shared/widgets/main_build.dart';
 
 import 'core/global_constants/global_constants.dart';
 import 'core/init/auth_manager/auth_manager.dart';
 import 'core/routing/router_provider.dart';
 import 'env.dart';
+import 'view/shared/widgets/main_build.dart';
 
 void main() async {
   bootstrap(() => const MyApp());

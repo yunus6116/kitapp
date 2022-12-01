@@ -1,13 +1,7 @@
 class SignInConstants {
-  static const String appBarTitle = "Giriş Yap";
-  static const String emailPlaceholder = "Email";
-  static const String passwordPlaceholder = "Parola";
-  static const String signInText = "GİRİŞ YAP";
-  static const String chiaraDialogText = "Giriş yapılıyor...";
-  static const String verifyEmailText = "Email'i doğrula!";
-  static const String sendAgainText = "Tekrar Gönder!";
-  static const String emailResentText =
-      "Doğrulama Email'i tekrardan gönderildi";
+  static const String verifyEmailText = "Verify Email!";
+  static const String sendAgainText = "Send again!";
+  static const String emailResentText = "Verification Email resent";
   static const String tryAgainToSignIn =
-      "Giriş bilgileriniz yanlış. Lütfen tekrar deneyiniz.";
+      "Your login information is incorrect. Please try again.";
 }

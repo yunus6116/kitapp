@@ -26,43 +26,39 @@ class NoNetworkWidget extends ConsumerWidget {
       initialData: NetWorkStatus.offline,
       stream: NetworkStatusServices().networkStatusController.stream,
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return AnimatedCrossFade(
-            duration: const Duration(milliseconds: 500),
-            crossFadeState: snapshot.data == NetWorkStatus.offline
-                ? CrossFadeState.showFirst
-                : CrossFadeState.showSecond,
-            firstChild: Container(
-                height: context.dynamicHeight(0.06),
-                color: context.theme.toggleableActiveColor,
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Padding(
-                        padding: context.horizontalHighPadding,
-                        child: Text(
-                          "Bağlantı Yok",
-                          style: context.textTheme.headline6
-                              ?.copyWith(color: Colors.white),
-                        ),
+        return AnimatedCrossFade(
+          duration: const Duration(milliseconds: 500),
+          crossFadeState: snapshot.data == NetWorkStatus.offline
+              ? CrossFadeState.showFirst
+              : CrossFadeState.showSecond,
+          firstChild: Container(
+              height: context.dynamicHeight(0.06),
+              color: context.theme.toggleableActiveColor,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: context.horizontalNormalPadding,
+                      child: Text(
+                        "No connection",
+                        style: context.textTheme.headline6
+                            ?.copyWith(color: Colors.white),
                       ),
                     ),
-                    Expanded(
-                        flex: 0,
-                        child: Padding(
-                          padding: context.horizontalHighPadding,
-                          child: const Icon(
-                              Icons.signal_wifi_connected_no_internet_4,
-                              color: Colors.white),
-                        ))
-                  ],
-                )),
-            secondChild: const SizedBox(),
-          );
-        } else {
-          return const SizedBox.shrink();
-        }
+                  ),
+                  Expanded(
+                      flex: 0,
+                      child: Padding(
+                        padding: context.rightHorizontalLowPadding,
+                        child: const Icon(
+                            Icons.signal_wifi_connected_no_internet_4,
+                            color: Colors.white),
+                      ))
+                ],
+              )),
+          secondChild: const SizedBox(),
+        );
       },
     );
   }

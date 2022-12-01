@@ -26,6 +26,9 @@ class AppTextStyles {
   // body5
   static TextStyle body5 = _getTextStyle(12, FontWeight.w700);
 
+  // body6
+  static TextStyle body6 = _getTextStyle(15, FontWeight.w600);
+
   // heading
   static TextStyle heading1 = _getTextStyle(22, FontWeight.w600);
 
@@ -36,6 +39,8 @@ class AppTextStyles {
   static TextStyle heading4 = _getTextStyle(16, FontWeight.w600);
 
   static TextStyle heading5 = _getTextStyle(14, FontWeight.w700);
+
+  static TextStyle heading6 = _getTextStyle(17, FontWeight.w700);
 
   // bottomNavBar
   static TextStyle bottomNavBar = _getTextStyle(14, FontWeight.w500);

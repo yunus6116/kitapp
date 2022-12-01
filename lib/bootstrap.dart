@@ -13,13 +13,15 @@ import 'core/init/cache/cache_manager.dart';
 import 'core/routing/router.gr.dart';
 import 'core/routing/router_provider.dart';
 import 'firebase_options.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   _openHiveBoxes() async {
     await Hive.openBox(BoxType.generalBox.name);
   }
 
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await Hive.initFlutter();
   await _openHiveBoxes();
   await Firebase.initializeApp(

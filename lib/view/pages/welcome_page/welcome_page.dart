@@ -13,42 +13,48 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: [
-            SizedBox(
-              width: double.infinity,
-              child: SvgPicture.asset(
-                'assets/svg/welcome.svg',
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: CustomButton(
-                buttonText: 'I need an accaount',
-                backgroundColor: AppColors.primary,
-                width: MediaQuery.of(context).size.width - 40,
-                height: 55,
-                borderRadius: 11,
-                onPressed: () async {},
-              ),
-            ),
-            const SizedBox(height: 24),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: CustomButton(
-                buttonText: 'I\'m already a Kitapper 👌🏻',
-                backgroundColor: AppColors.whiteButtonColor,
-                width: MediaQuery.of(context).size.width - 40,
-                textColor: AppColors.primary,
-                height: 55,
-                borderRadius: 11,
-                showShadow: true,
-                onPressed: () async {
-                  await context.router.navigate(SignInRoute());
-                },
-              ),
+            Column(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  child: SvgPicture.asset(
+                    'assets/svg/welcome.svg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: CustomButton(
+                    buttonText: 'I need an accaount',
+                    backgroundColor: AppColors.primary,
+                    width: MediaQuery.of(context).size.width - 40,
+                    height: 55,
+                    borderRadius: 11,
+                    onPressed: () async {
+                      await context.router.navigate(const SignUpRoute());
+                    },
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: CustomButton(
+                    buttonText: 'I\'m already a Kitapper 👌🏻',
+                    backgroundColor: AppColors.whiteButtonColor,
+                    width: MediaQuery.of(context).size.width - 40,
+                    textColor: AppColors.primary,
+                    height: 55,
+                    borderRadius: 11,
+                    showShadow: true,
+                    onPressed: () async {
+                      await context.router.navigate(SignInRoute());
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ),

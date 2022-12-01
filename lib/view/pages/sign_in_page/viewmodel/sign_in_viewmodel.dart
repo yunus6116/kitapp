@@ -44,45 +44,32 @@ class SignInVM extends ChangeNotifier {
   //   await router.navigate(const SignUpRoute());
   // }
 
-  Future<void> signIn(BuildContext context, SignInType signInType) async {
+  Future<void> signIn() async {
     try {
-      switch (signInType) {
-        case SignInType.mailSignIn:
-          try {
-            // await ref.read(registrationServicesProvider).signOut();
-            // UserCredential? userCredential = await ref
-            //     .read(registrationServicesProvider)
-            //     .signInWithMail(
-            //         emailController.text.trim(), passwordController.text);
-            await router.pushAndPopUntil(const MainRoute(),
-                predicate: (_) => false);
-            // if (ref
-            //     .read(authManagerProvider)
-            //     .currentOnlineUser!
-            //     .emailVerified) {
-            //   await ref
-            //       .read(registrationServicesProvider)
-            //       .updateUserIsEmailVerifiedIntoFireStore(
-            //           userCredential: userCredential);
-            //   await router.pushAndPopUntil(const MainRoute(),
-            //       predicate: (_) => false);
-            // } else {
-            //   snackBarKey.showSnackBar(
-            //       duration: const Duration(seconds: 10),
-            //       content: await _buildSendEmailVerificationSnackContent());
-            // }
-          } on FirebaseAuthException catch (_) {
-            return snackBarKey.showSnackBar(
-                message: SignInConstants.tryAgainToSignIn);
-          }
+      await ref.read(registrationServicesProvider).signOut();
+      UserCredential? userCredential = await ref
+          .read(registrationServicesProvider)
+          .signInWithMail(emailController.text.trim(), passwordController.text);
+      if (ref.read(authManagerProvider).currentOnlineUser!.emailVerified) {
+        await ref
+            .read(registrationServicesProvider)
+            .updateUserIsEmailVerifiedIntoFireStore(
+                userCredential: userCredential);
+        await router.pushAndPopUntil(const MainRoute(),
+            predicate: (_) => false);
+      } else {
+        snackBarKey.showSnackBar(
+          duration: const Duration(seconds: 10),
+          content: await _buildSendEmailVerificationSnackContent(),
+        );
       }
-    } on FirebaseAuthException catch (e) {
-      debugPrint(e.toString());
-      snackBarKey.showSnackBar(message: e.message, error: SnackBarType.error);
+    } on FirebaseAuthException catch (_) {
+      return snackBarKey.showSnackBar(
+          message: SignInConstants.tryAgainToSignIn);
     }
   }
 
-  Future<Row> _buildSendEmailVerificationSnackContent() async {
+  Future<Widget> _buildSendEmailVerificationSnackContent() async {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -90,23 +77,35 @@ class SignInVM extends ChangeNotifier {
           SignInConstants.verifyEmailText,
           style: TextStyle(color: Colors.white),
         ),
-        TertiaryButton(
-            color: Colors.white,
-            onPressed: () async {
-              await ref
-                  .read(registrationServicesProvider)
-                  .sendEmailVerification(
-                      user: ref.read(authManagerProvider).currentOnlineUser!)
-                  .then((value) async {
-                snackBarKey.showSnackBar(
-                    message: SignInConstants.emailResentText,
-                    duration: const Duration(seconds: 3));
-                await signOut();
-              });
-            },
-            text: SignInConstants.sendAgainText,
-            textStyle: const TextStyle(color: AppColors.primary),
-            height: 25),
+        TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(11.0),
+            ),
+          ),
+          onPressed: () async {
+            await ref
+                .read(registrationServicesProvider)
+                .sendEmailVerification(
+                    user: ref.read(authManagerProvider).currentOnlineUser!)
+                .then((value) async {
+              snackBarKey.showSnackBar(
+                message: SignInConstants.emailResentText,
+                duration: const Duration(seconds: 3),
+                snackBarType: SnackBarType.success,
+              );
+              await signOut();
+            });
+          },
+          child: const Text(
+            SignInConstants.sendAgainText,
+            style: TextStyle(color: AppColors.primary),
+            softWrap: false,
+            overflow: TextOverflow.fade,
+          ),
+        ),
       ],
     );
   }
