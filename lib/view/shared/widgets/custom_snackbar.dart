@@ -15,29 +15,25 @@ class CustomSnackBar {
           ? SnackBarAction(label: actionLabel, onPressed: action)
           : null,
       duration: duration,
-      behavior: SnackBarBehavior.floating,
-      padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 9),
       backgroundColor: snackBarType == SnackBarType.error
           ? const Color(0xFFDC2D2D)
-          : content == null
-              ? const Color(0xFFF8F8F8)
-              : const Color(0xFFBFFCC2),
-      content: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Expanded(
-          child: message != ""
-              ? Text(
-                  message!,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: snackBarType == SnackBarType.error
-                        ? Colors.white
-                        : Colors.black,
-                  ),
-                )
-              : content ?? const SizedBox(),
-        )
-      ]),
+          : snackBarType == SnackBarType.success
+              ? const Color(0xFF52C41A)
+              : const Color(0xFFF8F8F8),
+      content: message != ""
+          ? Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              Expanded(
+                  child: Text(
+                message!,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ))
+            ])
+          : content ?? const SizedBox(),
     );
   }
 }

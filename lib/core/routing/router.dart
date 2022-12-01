@@ -8,6 +8,7 @@ import '../../view/pages/main_page/main_page.dart';
 import '../../view/pages/main_page/my_profile_page/my_profile_page.dart';
 import '../../view/pages/main_page/search_page/search_page.dart';
 import '../../view/pages/sign_in_page/sign_in_page.dart';
+import '../../view/pages/sign_up_page/sign_up_page.dart';
 import '../../view/pages/splash_page/splash_page.dart';
 import '../../view/pages/welcome_page/welcome_page.dart';
 
@@ -52,6 +53,7 @@ import '../../view/pages/welcome_page/welcome_page.dart';
     AutoRoute(page: OnboardingPage),
     AutoRoute(page: WelcomePage),
     AutoRoute(page: SignInPage),
+    AutoRoute(page: SignUpPage),
   ],
 )
 class $AppRouter {}

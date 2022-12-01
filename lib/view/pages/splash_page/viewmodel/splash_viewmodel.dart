@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:supercharged/supercharged.dart';
 
 import '../../../../core/init/auth_manager/auth_manager.dart';
 import '../../../../core/init/cache/cache_manager.dart';

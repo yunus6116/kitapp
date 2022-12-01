@@ -4,7 +4,7 @@ import 'package:kitapp/view/shared/widgets/custom_snackbar.dart';
 
 import '../global_constants/global_constants.dart';
 
-extension SnackbarExtension on GlobalKey<ScaffoldMessengerState> {
+extension SnackbarExtension on dynamic {
   showSnackBar({
     String? message,
     dynamic error,
@@ -14,9 +14,20 @@ extension SnackbarExtension on GlobalKey<ScaffoldMessengerState> {
     VoidCallback? action,
     Widget? content,
   }) {
-    final isDioError = error is DioError;
-    var snackMessage =
-        message ?? (isDioError ? error.errorMessage : "Some error occurred");
+    var snackMessage = message ?? "";
+    if (error != null) {
+      if (error is DioError) {
+        if (error.response!.statusCode == 500) {
+          debugPrint("ERROR 2 --> $error");
+          snackMessage = "Server Hatası";
+        } else {
+          snackMessage = error.response?.data?["message"] ?? "";
+        }
+      } else {
+        debugPrint("ERROR --> $error");
+        snackMessage = message ?? "Bir hata oluştu";
+      }
+    }
 
     SnackBar showSnackBar() {
       return CustomSnackBar.show(
@@ -29,8 +40,14 @@ extension SnackbarExtension on GlobalKey<ScaffoldMessengerState> {
       );
     }
 
-    snackBarKey.currentState?.clearSnackBars();
-    snackBarKey.currentState?.showSnackBar(showSnackBar());
+    if (this is BuildContext) {
+      ScaffoldMessenger.of(this).clearSnackBars();
+      ScaffoldMessenger.of(this).showSnackBar(showSnackBar());
+    }
+    if (this is GlobalKey) {
+      snackBarKey.currentState?.clearSnackBars();
+      snackBarKey.currentState?.showSnackBar(showSnackBar());
+    }
   }
 }
 

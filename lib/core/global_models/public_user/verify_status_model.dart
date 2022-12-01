@@ -1,16 +1,47 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'dart:convert';
 
-part 'verify_status_model.freezed.dart';
-part 'verify_status_model.g.dart';
+class VerifyStatus {
+  bool isEmailVerified;
 
-@freezed
-class VerifyStatus with _$VerifyStatus {
-  const factory VerifyStatus({
-    required bool isEmailVerified,
-    required bool isGoogleVerified,
-    required bool isAppleVerified,
-  }) = _VerifyStatus;
+  VerifyStatus({
+    this.isEmailVerified = false,
+  });
 
-  factory VerifyStatus.fromJson(Map<String, dynamic> json) =>
-      _$VerifyStatusFromJson(json);
+  VerifyStatus copyWith({
+    bool? isEmailVerified,
+  }) {
+    return VerifyStatus(
+      isEmailVerified: isEmailVerified ?? this.isEmailVerified,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'isEmailVerified': isEmailVerified,
+    };
+  }
+
+  factory VerifyStatus.fromMap(Map<String, dynamic> map) {
+    return VerifyStatus(
+      isEmailVerified: map['is_email_verified'] ?? false,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory VerifyStatus.fromJson(String source) =>
+      VerifyStatus.fromMap(json.decode(source));
+
+  @override
+  String toString() => 'VerifyStatus(isEmailVerified: $isEmailVerified)';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is VerifyStatus && other.isEmailVerified == isEmailVerified;
+  }
+
+  @override
+  int get hashCode => isEmailVerified.hashCode;
 }
