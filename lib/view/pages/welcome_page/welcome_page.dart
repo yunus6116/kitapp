@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../core/routing/router.gr.dart';
 import '../../shared/styles/colors.dart';
@@ -11,32 +12,43 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              width: double.infinity,
+              child: SvgPicture.asset(
+                'assets/svg/welcome.svg',
+                fit: BoxFit.cover,
+              ),
+            ),
             const SizedBox(height: 40),
-            CustomButton(
-              buttonText: 'I need an accaount',
-              backgroundColor: AppColors.primary,
-              width: MediaQuery.of(context).size.width - 40,
-              height: 55,
-              borderRadius: 11,
-              onPressed: () async {},
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomButton(
+                buttonText: 'I need an accaount',
+                backgroundColor: AppColors.primary,
+                width: MediaQuery.of(context).size.width - 40,
+                height: 55,
+                borderRadius: 11,
+                onPressed: () async {},
+              ),
             ),
             const SizedBox(height: 24),
-            CustomButton(
-              buttonText: 'I\'m already a Kitapper 👌🏻',
-              backgroundColor: AppColors.whiteButtonColor,
-              width: MediaQuery.of(context).size.width - 40,
-              textColor: AppColors.primary,
-              height: 55,
-              borderRadius: 11,
-              showShadow: true,
-              onPressed: () async {
-                await context.router.navigate(SignInRoute());
-              },
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomButton(
+                buttonText: 'I\'m already a Kitapper 👌🏻',
+                backgroundColor: AppColors.whiteButtonColor,
+                width: MediaQuery.of(context).size.width - 40,
+                textColor: AppColors.primary,
+                height: 55,
+                borderRadius: 11,
+                showShadow: true,
+                onPressed: () async {
+                  await context.router.navigate(SignInRoute());
+                },
+              ),
             ),
           ],
         ),
