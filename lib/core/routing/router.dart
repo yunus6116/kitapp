@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
-import 'package:kitapp/view/pages/onboarding_page/onboarding_page.dart';
+import '../../view/pages/onboarding_page/onboarding_page.dart';
 
 import '../../view/pages/main_page/explore_page/explore_page.dart';
 import '../../view/pages/main_page/home_page/home_page.dart';

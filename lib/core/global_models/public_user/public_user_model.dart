@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:kitapp/core/global_models/public_user/verify_status_model.dart';
+import 'verify_status_model.dart';
 
 class PublicUser {
   String? uid;

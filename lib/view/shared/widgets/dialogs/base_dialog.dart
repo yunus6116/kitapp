@@ -1,4 +1,4 @@
-import 'package:kitapp/core/extensions/context_extensions.dart';
+import '../../../../core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kitapp/core/extensions/context_extensions.dart';
-import 'package:kitapp/view/shared/styles/colors.dart';
+
+import '../../../core/extensions/context_extensions.dart';
+import 'colors.dart';
 
 class AppTextStyles {
   // button

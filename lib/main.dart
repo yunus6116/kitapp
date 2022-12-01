@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/bootstrap.dart';
-import 'package:kitapp/view/pages/main_page/home_page/utils/utils.dart';
-import 'package:kitapp/view/shared/styles/theme.dart';
-import 'package:kitapp/view/shared/widgets/focus_escape.dart';
+import 'bootstrap.dart';
+import 'view/pages/main_page/home_page/utils/utils.dart';
+import 'view/shared/styles/theme.dart';
+import 'view/shared/widgets/focus_escape.dart';
 
 import 'core/global_constants/global_constants.dart';
 import 'core/init/auth_manager/auth_manager.dart';

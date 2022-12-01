@@ -1,4 +1,4 @@
-import 'package:kitapp/core/extensions/context_extensions.dart';
+import '../../../../core/extensions/context_extensions.dart';
 
 import '../../styles/text_styles.dart';
 import 'package:flutter/material.dart';

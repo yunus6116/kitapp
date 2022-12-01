@@ -1,11 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/core/extensions/context_extensions.dart';
-import 'package:kitapp/view/pages/sign_up_page/viewmodel/sign_up_viewmodel.dart';
+import '../../../core/extensions/context_extensions.dart';
+import 'viewmodel/sign_up_viewmodel.dart';
 
-import '../../../core/routing/router.gr.dart';
 import '../../shared/styles/colors.dart';
 import '../../shared/widgets/controlled_textfield.dart';
 import '../../shared/widgets/custom_appbar.dart';
@@ -166,9 +164,6 @@ class SignUpPage extends HookConsumerWidget {
                             height: 55,
                             borderRadius: 11,
                             onPressed: () async {
-                              // await context.router.pushAndPopUntil(
-                              //     const MainRoute(),
-                              //     predicate: (_) => false);
                               if (formKey.currentState!.validate()) {
                                 await ref.read(signUpVMProvider).signUp(
                                       context,

@@ -1,5 +1,5 @@
-import 'package:kitapp/core/extensions/snackbar_extension.dart';
-import 'package:kitapp/core/global_constants/global_constants.dart';
+import '../../../../core/extensions/snackbar_extension.dart';
+import '../../../../core/global_constants/global_constants.dart';
 import '../../../../core/global_models/public_user/public_user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -55,10 +55,6 @@ class SignUpVM extends ChangeNotifier {
   void setPublicUserIsAgreedTerms(bool? isAgreedTerms) {
     publicUser.isAgreedTerms = isAgreedTerms;
   }
-
-  // Future<void> navigateToSignUpPage() async {
-  //   await router.navigate(const SignUpRoute());
-  // }
 
   Future<void> signUp(BuildContext context) async {
     try {

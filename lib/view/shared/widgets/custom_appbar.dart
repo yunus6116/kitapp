@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kitapp/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 
 class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
   final bool? hasTitle, showBackButton;

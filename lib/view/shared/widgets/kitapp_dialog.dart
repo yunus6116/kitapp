@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kitapp/core/extensions/context_extensions.dart';
-import 'package:kitapp/view/shared/styles/colors.dart';
-import 'package:kitapp/view/shared/styles/text_styles.dart';
-import 'package:kitapp/view/shared/widgets/custom_button.dart';
+import '../../../core/extensions/context_extensions.dart';
+import '../styles/colors.dart';
+import '../styles/text_styles.dart';
+import 'custom_button.dart';
 
 import 'button/tertiary_button.dart';
 
@@ -133,7 +133,7 @@ class KitappDialog {
           },
       buttonText: tertiaryButtonText ?? 'OK',
       backgroundColor: AppColors.primary,
-      padding: EdgeInsets.symmetric(horizontal: 90),
+      padding: const EdgeInsets.symmetric(horizontal: 90),
     );
   }
 }

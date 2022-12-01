@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:kitapp/core/extensions/context_extensions.dart';
+import '../../../../core/extensions/context_extensions.dart';
 import '../../styles/text_styles.dart';
 import 'base_dialog.dart';
 import 'package:flutter/material.dart';
