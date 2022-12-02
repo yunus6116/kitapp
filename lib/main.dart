@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:kitapp/view/shared/styles/colors.dart';
 
 import 'bootstrap.dart';
 import 'core/global_constants/global_constants.dart';
@@ -45,7 +46,7 @@ class MyApp extends HookConsumerWidget {
       },
       loading: () => const Center(
         child: CircularProgressIndicator(
-          color: Colors.red,
+          color: AppColors.primary,
         ),
       ),
     );

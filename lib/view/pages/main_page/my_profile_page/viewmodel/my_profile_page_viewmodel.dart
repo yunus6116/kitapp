@@ -8,6 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../../core/routing/router_provider.dart';
 import '../../../../../core/services/registration_services.dart';
+import '../../../../shared/widgets/custom_snackbar.dart';
 
 final myProfileVMProvider =
     ChangeNotifierProvider.autoDispose((ref) => MyProfileVM(ref));
@@ -32,8 +33,11 @@ class MyProfileVM extends ChangeNotifier {
     try {
       await ref.read(registrationServicesProvider).signOut();
       await router.pushAndPopUntil(SignInRoute(), predicate: (_) => false);
-    } on FirebaseAuthException catch (_) {
-      return snackBarKey.showSnackBar(message: 'Some error occured.');
+    } on FirebaseAuthException catch (e) {
+      return snackBarKey.showSnackBar(
+        message: e.message,
+        snackBarType: SnackBarType.error,
+      );
     }
   }
 }
