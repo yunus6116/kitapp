@@ -3,12 +3,13 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../core/init/theme_manager/theme_manager.dart';
+import '../styles/colors.dart';
 import '../styles/text_styles.dart';
 
 class CustomButton extends HookConsumerWidget {
   final String buttonText;
   final bool isDisabled, showShadow;
-  final Function onPressed;
+  final Function? onPressed;
   final bool? isLoading;
   final bool showBorder;
   final double? borderRadius, height, width;
@@ -58,7 +59,7 @@ class CustomButton extends HookConsumerWidget {
           : () async {
               FocusManager.instance.primaryFocus?.unfocus();
               toggleButtonLoading();
-              await onPressed();
+              onPressed != null ? await onPressed!() : null;
               if (mounted()) {
                 toggleButtonLoading();
               }
@@ -89,7 +90,7 @@ class CustomButton extends HookConsumerWidget {
           color: isDisabled
               ? (backgroundColor != null &&
                       backgroundColor != Colors.transparent
-                  ? backgroundColor!.withOpacity(0.4)
+                  ? AppColors.disabledBgColor
                   : Colors.transparent)
               : (backgroundColor ?? theme.primary[600]),
         ),
@@ -113,8 +114,8 @@ class CustomButton extends HookConsumerWidget {
                       buttonText,
                       style: buttonTextStyle ??
                           AppTextStyles.textButton1.copyWith(
-                              color: buttonTextColor
-                                  .withOpacity(isDisabled ? 0.6 : 1)),
+                              color:
+                                  isDisabled ? Colors.white : buttonTextColor),
                       textAlign: TextAlign.center,
                     ),
                   ),

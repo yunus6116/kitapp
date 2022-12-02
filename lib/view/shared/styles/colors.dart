@@ -10,6 +10,10 @@ abstract class AppColors {
 
   static const Color primary = Color(0xFFDE7773);
 
+  static const Color disabledBgColor = Color(0xFFCACACA);
+
+  static const Color primaryTextColor = Color(0xFF4D506C);
+
   ///Added on 20.08.2022 new color update
   static const Color plum = Color(0xff751E6C);
   static const Color tawnyPort = Color(0xff651A5D);

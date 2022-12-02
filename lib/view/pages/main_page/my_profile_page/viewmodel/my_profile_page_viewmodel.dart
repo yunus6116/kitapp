@@ -30,7 +30,8 @@ class MyProfileVM extends ChangeNotifier {
   Future<void> logout() async {
     try {
       await ref.read(registrationServicesProvider).signOut();
-      await router.pushAndPopUntil(SignInRoute(), predicate: (_) => false);
+      await router.pushAndPopUntil(const WelcomeRoute(),
+          predicate: (_) => false);
     } on FirebaseAuthException catch (e) {
       return snackBarKey.showSnackBar(
         message: e.message,

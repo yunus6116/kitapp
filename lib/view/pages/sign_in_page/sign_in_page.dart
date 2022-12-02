@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -23,6 +24,8 @@ class SignInPage extends HookConsumerWidget {
         ref.watch(signInVMProvider.select((value) => value.emailController));
     final passwordController =
         ref.watch(signInVMProvider.select((value) => value.passwordController));
+    final passwordVisible = useState(false);
+
     return Scaffold(
       appBar: CustomAppbar(
         title: 'Login',
@@ -72,7 +75,19 @@ class SignInPage extends HookConsumerWidget {
                           ),
                           const SizedBox(height: 5),
                           ControlledTextField(
-                            obscureText: true,
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                passwordVisible.value
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color:
+                                    AppColors.primaryTextColor.withOpacity(0.6),
+                              ),
+                              onPressed: () {
+                                passwordVisible.value = !passwordVisible.value;
+                              },
+                            ),
+                            obscureText: !passwordVisible.value,
                             textEditingController: passwordController,
                             prefixIcon: Icon(
                               MaterialCommunityIcons.lock,

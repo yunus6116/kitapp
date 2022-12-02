@@ -28,7 +28,7 @@ class WelcomePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: CustomButton(
-                    buttonText: 'I need an accaount',
+                    buttonText: 'I need an account',
                     backgroundColor: AppColors.primary,
                     width: MediaQuery.of(context).size.width - 40,
                     height: 55,
