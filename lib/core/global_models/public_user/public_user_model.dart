@@ -1,7 +1,8 @@
-import 'dart:convert';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:kitapp/core/global_models/public_user/date_model.dart';
 
 import 'verify_status_model.dart';
 
@@ -13,8 +14,8 @@ class PublicUser {
   String? lastName;
   String? bio;
   String? profilePicture;
-  DateTime? joinedAt;
-  DateTime? modifiedAt;
+  Timestamp? joinedAt;
+  Timestamp? modifiedAt;
   VerifyStatus? verifyStatus;
   bool? isAgreedTerms;
   PublicUser({
@@ -35,13 +36,12 @@ class PublicUser {
     String? uid,
     String? email,
     String? username,
-    String? phone,
     String? firstName,
     String? lastName,
     String? bio,
     String? profilePicture,
-    DateTime? joinedAt,
-    DateTime? modifiedAt,
+    Timestamp? joinedAt,
+    Timestamp? modifiedAt,
     VerifyStatus? verifyStatus,
     bool? isAgreedTerms,
   }) {
@@ -69,8 +69,8 @@ class PublicUser {
       'lastName': lastName,
       'bio': bio,
       'profilePicture': profilePicture,
-      'joinedAt': joinedAt?.millisecondsSinceEpoch,
-      'modifiedAt': modifiedAt?.millisecondsSinceEpoch,
+      "joined_at": Date.fromDocumentSnapshot(joinedAt),
+      "modified_at": Date.fromDocumentSnapshot(modifiedAt),
       'verify_status': verifyStatus?.toMap(),
       'isAgreedTerms': isAgreedTerms,
     };
@@ -85,12 +85,8 @@ class PublicUser {
       lastName: map['lastName'],
       bio: map['bio'],
       profilePicture: map['profilePicture'],
-      joinedAt: map['joinedAt'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(map['joinedAt'])
-          : null,
-      modifiedAt: map['modifiedAt'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(map['modifiedAt'])
-          : null,
+      joinedAt: map["joined_at"],
+      modifiedAt: map["modified_at"],
       verifyStatus: map['verify_status'] != null
           ? VerifyStatus.fromMap(map['verify_status'])
           : null,
@@ -113,52 +109,9 @@ class PublicUser {
           ? '${publicUser?.firstName} ${publicUser?.lastName?[0]}.'
           : 'User${rng.nextInt(10000)}',
       verifyStatus: publicUser?.verifyStatus ?? VerifyStatus(),
-      joinedAt: DateTime.now(),
-      modifiedAt: DateTime.now(),
+      joinedAt: Timestamp.fromDate(DateTime.now()),
+      modifiedAt: Timestamp.fromDate(DateTime.now()),
       bio: '',
     );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory PublicUser.fromJson(String source) =>
-      PublicUser.fromMap(json.decode(source));
-
-  @override
-  String toString() {
-    return 'PublicUser(uid: $uid, email: $email, username: $username,firstName: $firstName, lastName: $lastName, bio: $bio, profilePicture: $profilePicture, joinedAt: $joinedAt, modifiedAt: $modifiedAt, verifyStatus: $verifyStatus, isAgreedTerms: $isAgreedTerms)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is PublicUser &&
-        other.uid == uid &&
-        other.email == email &&
-        other.username == username &&
-        other.firstName == firstName &&
-        other.lastName == lastName &&
-        other.bio == bio &&
-        other.profilePicture == profilePicture &&
-        other.joinedAt == joinedAt &&
-        other.modifiedAt == modifiedAt &&
-        other.verifyStatus == verifyStatus &&
-        other.isAgreedTerms == isAgreedTerms;
-  }
-
-  @override
-  int get hashCode {
-    return uid.hashCode ^
-        email.hashCode ^
-        username.hashCode ^
-        firstName.hashCode ^
-        lastName.hashCode ^
-        bio.hashCode ^
-        profilePicture.hashCode ^
-        joinedAt.hashCode ^
-        modifiedAt.hashCode ^
-        verifyStatus.hashCode ^
-        isAgreedTerms.hashCode;
   }
 }

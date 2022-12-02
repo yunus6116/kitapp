@@ -50,7 +50,7 @@ final userChangesProvider = StreamProvider.autoDispose<PublicUser>((ref) {
       .read(registrationServicesProvider)
       .listenUserChanges(currentUserModel!.uid!);
   return stream.map((snapshot) {
-    final userModel = PublicUser.fromJson(snapshot.data());
+    final userModel = PublicUser.fromMap(snapshot.data());
     ref.read(authManagerProvider).setCurrentUserModel(userModel);
     return userModel;
   });

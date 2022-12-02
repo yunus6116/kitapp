@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/view/shared/widgets/user_avatar.dart';
 
 import '../../../core/global_models/public_user/public_user_model.dart';
 
