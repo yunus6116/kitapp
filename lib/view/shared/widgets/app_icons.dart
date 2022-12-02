@@ -36,17 +36,6 @@ class AppIcons extends HookConsumerWidget {
         SvgPicture.asset("assets/svg/$svgName.svg",
             width: width, color: iconColor);
 
-    Widget _buildProfileImg(String pngName) =>
-        currentUser?.profilePicture != null
-            ? UserAvatar(
-                imageUrl: currentUser?.profilePicture,
-                radius: 16,
-              )
-            : Image.asset(
-                "assets/png/$pngName.png",
-                width: width ?? 32,
-              );
-
     switch (iconType) {
       case IconType.home:
         return _buildIcon(Icons.home);
@@ -55,7 +44,8 @@ class AppIcons extends HookConsumerWidget {
       case IconType.explore:
         return _buildIcon(Icons.explore);
       case IconType.user:
-        return _buildProfileImg(IconType.user.name);
+        return _buildIcon(Icons.person);
+
       default:
         return _buildSvg('');
     }

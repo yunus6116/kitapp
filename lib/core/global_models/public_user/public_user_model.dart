@@ -113,8 +113,8 @@ class PublicUser {
           ? '${publicUser?.firstName} ${publicUser?.lastName?[0]}.'
           : 'User${rng.nextInt(10000)}',
       verifyStatus: publicUser?.verifyStatus ?? VerifyStatus(),
-      joinedAt: user.metadata.creationTime,
-      modifiedAt: user.metadata.creationTime,
+      joinedAt: DateTime.now(),
+      modifiedAt: DateTime.now(),
       bio: '',
     );
   }
