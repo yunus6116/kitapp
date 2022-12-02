@@ -1,11 +1,11 @@
 import 'dart:typed_data';
 
-import '../extensions/snackbar_extension.dart';
-
-import '../global_providers/global_providers.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../extensions/snackbar_extension.dart';
 import '../global_constants/global_constants.dart';
+import '../global_providers/global_providers.dart';
 
 abstract class IStorageServices {
   Future<String> getPictureUrl(String path);

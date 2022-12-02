@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/view/pages/main_page/my_profile_page/viewmodel/my_profile_page_viewmodel.dart';
+import 'viewmodel/my_profile_page_viewmodel.dart';
 import '../../../shared/styles/colors.dart';
 import '../../../shared/widgets/custom_appbar.dart';
 import '../../../shared/widgets/custom_button.dart';

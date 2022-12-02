@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../shared/widgets/custom_appbar.dart';
 
 class SearchPage extends StatelessWidget {

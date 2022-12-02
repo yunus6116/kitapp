@@ -1,11 +1,11 @@
 // ignore_for_file: use_build_context_synchronously
 
-import '../../../../core/extensions/snackbar_extension.dart';
-import '../../../../core/global_constants/global_constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../../core/extensions/snackbar_extension.dart';
+import '../../../../core/global_constants/global_constants.dart';
 import '../../../../core/routing/router.gr.dart';
 import '../../../../core/routing/router_provider.dart';
 import '../../../../core/services/registration_services.dart';

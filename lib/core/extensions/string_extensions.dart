@@ -1,9 +1,10 @@
 import 'dart:convert';
 
+import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:crypto/crypto.dart';
+
 import '../../env.dart';
 import '../enums/regex_type.dart';
 import '../global_constants/global_constants.dart';

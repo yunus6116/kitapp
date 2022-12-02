@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/view/pages/forgot_password_page/viewmodel/forgot_password_viewmodel.dart';
+import 'viewmodel/forgot_password_viewmodel.dart';
 import '../../../core/extensions/context_extensions.dart';
 import '../../shared/styles/colors.dart';
 import '../../shared/widgets/custom_appbar.dart';

@@ -1,15 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'bootstrap.dart';
-import 'view/pages/main_page/home_page/utils/utils.dart';
-import 'view/shared/styles/theme.dart';
-import 'view/shared/widgets/focus_escape.dart';
 
+import 'bootstrap.dart';
 import 'core/global_constants/global_constants.dart';
 import 'core/init/auth_manager/auth_manager.dart';
 import 'core/routing/router_provider.dart';
 import 'env.dart';
+import 'view/pages/main_page/home_page/utils/utils.dart';
+import 'view/shared/styles/theme.dart';
+import 'view/shared/widgets/focus_escape.dart';
 import 'view/shared/widgets/main_build.dart';
 
 void main() async {

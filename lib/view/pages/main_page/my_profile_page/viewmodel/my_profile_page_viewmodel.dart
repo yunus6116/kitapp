@@ -1,4 +1,4 @@
-import 'package:kitapp/core/extensions/snackbar_extension.dart';
+import '../../../../../core/extensions/snackbar_extension.dart';
 
 import '../../../../../core/global_constants/global_constants.dart';
 import '../../../../../core/routing/router.gr.dart';
