@@ -96,7 +96,6 @@ class SignUpVM extends ChangeNotifier {
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
-        Navigator.pop(context, false);
         snackBarKey.showSnackBar(
             message: SignUpConstants.emailAlreadyInUseText,
             error: SnackBarType.error,
