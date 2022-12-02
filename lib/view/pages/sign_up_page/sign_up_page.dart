@@ -112,7 +112,7 @@ class SignUpPage extends HookConsumerWidget {
                           ControlledTextField(
                             textEditingController: emailController,
                             prefixIcon: Icon(
-                              FontAwesome5Solid.user_alt,
+                              Icons.email,
                               color: context.theme.secondaryHeaderColor,
                               size: 20,
                             ),

@@ -95,28 +95,11 @@ extension ValidationExtensions on String {
       ? null
       : "This field must contain at least $minLength characters.";
 
-  String? hasEqualLengthOf(int equalLength) => length == equalLength
-      ? null
-      : "Bu alan $equalLength karakter içermelidir";
-
   String? isValidMail({String? errorMessage}) =>
       RegexType.eMail.regex.hasMatch(this)
           ? null
-          : (errorMessage ?? "Geçerli bir mail adresi giriniz");
-
-  String? hasExactLengthOf(int exactLength) => length == exactLength
-      ? null
-      : "Bu alan $exactLength karakterden oluşmalıdır";
+          : (errorMessage ?? "Please enter a valid e-mail address");
 
   String? hasData({String? fieldName, String? errorText}) =>
       isNotEmpty ? null : (errorText ?? "$fieldName is required");
-
-  String? isInList(List<String> stringList, String? errorText) =>
-      stringList.contains(this)
-          ? null
-          : errorText ?? "Opsiyonlardan birini seçiniz";
-
-  String? get isValidMobilePhone => RegexType.phoneNumber.regex.hasMatch(this)
-      ? null
-      : 'Lütfen geçerli bir cep telefonu numarası girin';
 }

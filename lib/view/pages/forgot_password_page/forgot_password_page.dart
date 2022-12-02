@@ -1,31 +1,26 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/core/routing/router.gr.dart';
+import 'package:kitapp/view/pages/forgot_password_page/viewmodel/forgot_password_viewmodel.dart';
 import '../../../core/extensions/context_extensions.dart';
-import 'viewmodel/sign_in_viewmodel.dart';
 import '../../shared/styles/colors.dart';
-import '../../shared/styles/text_styles.dart';
 import '../../shared/widgets/custom_appbar.dart';
 import '../../shared/widgets/custom_button.dart';
 
 import '../../shared/widgets/controlled_textfield.dart';
 import '../../../core/extensions/string_extensions.dart';
 
-class SignInPage extends HookConsumerWidget {
-  SignInPage({super.key});
+class ForgotPasswordPage extends HookConsumerWidget {
+  ForgotPasswordPage({super.key});
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final emailController =
-        ref.watch(signInVMProvider.select((value) => value.emailController));
-    final passwordController =
-        ref.watch(signInVMProvider.select((value) => value.passwordController));
+    final emailController = ref.watch(
+        forgotPasswordVMProvider.select((value) => value.emailController));
+
     return Scaffold(
       appBar: CustomAppbar(
-        title: 'Login',
+        title: 'Forgot Password',
       ),
       body: SafeArea(
         child: Padding(
@@ -63,53 +58,21 @@ class SignInPage extends HookConsumerWidget {
                               return value?.isValidMail(errorMessage: null);
                             },
                           ),
-                          const SizedBox(height: 12),
-                          const Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'Password',
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          ControlledTextField(
-                            obscureText: true,
-                            textEditingController: passwordController,
-                            prefixIcon: Icon(
-                              MaterialCommunityIcons.lock,
-                              color: context.theme.secondaryHeaderColor,
-                              size: 20,
-                            ),
-                            contentPadding: const EdgeInsets.all(20),
-                            validate: (value) {
-                              if (value == "") {
-                                return value?.hasData(fieldName: "Password");
-                              }
-                              return value?.hasMinLengthOf(6);
-                            },
-                          ),
                           const SizedBox(height: 32),
                           CustomButton(
-                            buttonText: 'Let me in',
+                            buttonText: 'Send',
                             backgroundColor: AppColors.primary,
                             width: MediaQuery.of(context).size.width - 40,
                             height: 55,
                             borderRadius: 11,
+                            isLoading: false,
                             onPressed: () async {
                               if (formKey.currentState!.validate()) {
-                                await ref.read(signInVMProvider).signIn();
+                                await ref
+                                    .read(forgotPasswordVMProvider)
+                                    .sendResetPassword(context);
                               }
                             },
-                          ),
-                          const SizedBox(height: 32),
-                          TextButton(
-                            onPressed: () async {
-                              await context.router
-                                  .navigate(ForgotPasswordRoute());
-                            },
-                            child: Text(
-                              'Forget my password, need help! 😰',
-                              style: AppTextStyles.forgotPassword,
-                            ),
                           ),
                         ],
                       )),
