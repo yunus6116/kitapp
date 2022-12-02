@@ -56,9 +56,7 @@ class ForgotPasswordVM extends ChangeNotifier {
       );
     } on FirebaseAuthException catch (e) {
       return snackBarKey.showSnackBar(
-          message: e.message,
-          snackBarType: SnackBarType.error,
-          duration: Duration(seconds: 3));
+          message: e.message, duration: const Duration(seconds: 5));
     }
   }
 }

@@ -36,7 +36,6 @@ class MyProfileVM extends ChangeNotifier {
     } on FirebaseAuthException catch (e) {
       return snackBarKey.showSnackBar(
         message: e.message,
-        snackBarType: SnackBarType.error,
       );
     }
   }
