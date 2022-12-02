@@ -103,13 +103,4 @@ class SignUpVM extends ChangeNotifier {
       }
     }
   }
-
-  Future<void> signOut() async {
-    try {
-      await ref.read(registrationServicesProvider).signOut();
-      router.replace(SignInRoute());
-    } on FirebaseAuthException catch (e) {
-      snackBarKey.showSnackBar(message: e.message);
-    }
-  }
 }

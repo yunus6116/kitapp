@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'viewmodel/my_profile_page_viewmodel.dart';
+
 import '../../../shared/styles/colors.dart';
 import '../../../shared/widgets/custom_appbar.dart';
 import '../../../shared/widgets/custom_button.dart';
+import 'viewmodel/my_profile_page_viewmodel.dart';
 
 class MyProfilePage extends HookConsumerWidget {
   const MyProfilePage({super.key});

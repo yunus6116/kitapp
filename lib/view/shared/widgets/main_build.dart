@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../../core/extensions/context_extensions.dart';
 
+import '../../../core/extensions/context_extensions.dart';
 import '../../../core/init/connectivity_manager/network_status_service.dart';
 
 class MainBuild {

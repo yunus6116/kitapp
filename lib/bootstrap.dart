@@ -1,10 +1,12 @@
 import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -13,7 +15,6 @@ import 'core/init/cache/cache_manager.dart';
 import 'core/routing/router.gr.dart';
 import 'core/routing/router_provider.dart';
 import 'firebase_options.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   openHiveBoxes() async {

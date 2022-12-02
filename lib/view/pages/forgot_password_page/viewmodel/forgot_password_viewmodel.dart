@@ -3,7 +3,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/view/shared/widgets/custom_snackbar.dart';
 
 import '../../../../core/extensions/snackbar_extension.dart';
 import '../../../../core/global_constants/global_constants.dart';

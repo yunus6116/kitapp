@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kitapp/view/shared/styles/colors.dart';
+import 'view/shared/styles/colors.dart';
 
 import 'bootstrap.dart';
 import 'core/global_constants/global_constants.dart';

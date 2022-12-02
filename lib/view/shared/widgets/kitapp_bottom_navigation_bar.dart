@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
 import '../../../core/extensions/context_extensions.dart';
 import '../../../core/init/auth_manager/auth_manager.dart';
-import 'app_icons.dart';
-import 'package:flutter/material.dart';
-
 import '../styles/colors.dart';
+import 'app_icons.dart';
 
 class KitappBottomNavigationBar extends HookConsumerWidget {
   final TabsRouter tabsRouter;
