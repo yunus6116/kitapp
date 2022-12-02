@@ -1,12 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
-import '../../view/pages/onboarding_page/onboarding_page.dart';
 
+import '../../view/pages/forgot_password_page/forgot_password_page.dart';
 import '../../view/pages/main_page/explore_page/explore_page.dart';
 import '../../view/pages/main_page/home_page/home_page.dart';
 import '../../view/pages/main_page/main_page.dart';
 import '../../view/pages/main_page/my_profile_page/my_profile_page.dart';
 import '../../view/pages/main_page/search_page/search_page.dart';
+import '../../view/pages/onboarding_page/onboarding_page.dart';
 import '../../view/pages/sign_in_page/sign_in_page.dart';
 import '../../view/pages/sign_up_page/sign_up_page.dart';
 import '../../view/pages/splash_page/splash_page.dart';
@@ -54,6 +55,7 @@ import '../../view/pages/welcome_page/welcome_page.dart';
     AutoRoute(page: WelcomePage),
     AutoRoute(page: SignInPage),
     AutoRoute(page: SignUpPage),
+    AutoRoute(page: ForgotPasswordPage),
   ],
 )
 class $AppRouter {}

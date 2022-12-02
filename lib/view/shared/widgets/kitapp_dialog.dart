@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+
 import '../../../core/extensions/context_extensions.dart';
 import '../styles/colors.dart';
 import '../styles/text_styles.dart';
-import 'custom_button.dart';
-
 import 'button/tertiary_button.dart';
+import 'custom_button.dart';
 
 class KitappDialog {
   static show(

@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import '../../../../core/extensions/context_extensions.dart';
-import '../../styles/colors.dart';
-import 'base_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../../core/extensions/context_extensions.dart';
+import '../../styles/colors.dart';
 import '../custom_button.dart';
+import 'base_dialog.dart';
 
 class DeleteAccountDialog extends HookConsumerWidget {
   final VoidCallback onDeleteClick;

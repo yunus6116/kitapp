@@ -1,13 +1,14 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kitapp/core/extensions/context_extensions.dart';
 import 'package:kitapp/view/shared/widgets/storage_image.dart';
+
 import '../../../core/init/auth_manager/auth_manager.dart';
 import 'shimmers/shimmer_effect.dart';
-import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class UserAvatar extends HookConsumerWidget {
   final String? imageUrl;

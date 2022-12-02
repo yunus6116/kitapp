@@ -1,10 +1,10 @@
-import '../../../../core/extensions/snackbar_extension.dart';
-import '../../../../core/global_constants/global_constants.dart';
-import '../../../../core/global_models/public_user/public_user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../../core/extensions/snackbar_extension.dart';
+import '../../../../core/global_constants/global_constants.dart';
+import '../../../../core/global_models/public_user/public_user_model.dart';
 import '../../../../core/init/auth_manager/auth_manager.dart';
 import '../../../../core/routing/router.gr.dart';
 import '../../../../core/routing/router_provider.dart';

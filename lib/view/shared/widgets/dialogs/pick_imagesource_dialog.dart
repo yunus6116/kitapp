@@ -10,7 +10,7 @@ import '../../styles/colors.dart';
 class PickImageSourceDialog extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Widget _buildIconAndText(
+    Widget buildIconAndText(
         String title, IconData iconData, ImageSource imageSource) {
       return GestureDetector(
         onTap: () => context.popRoute(imageSource),
@@ -37,13 +37,13 @@ class PickImageSourceDialog extends HookConsumerWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: _buildIconAndText(
-                        "Kamera", Icons.camera_alt, ImageSource.camera),
+                    child: buildIconAndText(
+                        "Camera", Icons.camera_alt, ImageSource.camera),
                   ),
                   const VerticalDivider(),
                   Expanded(
-                    child: _buildIconAndText(
-                        "Galeri", Icons.photo_library, ImageSource.gallery),
+                    child: buildIconAndText(
+                        "Galery", Icons.photo_library, ImageSource.gallery),
                   )
                 ],
               ),
@@ -52,7 +52,7 @@ class PickImageSourceDialog extends HookConsumerWidget {
             TextButton(
                 onPressed: () => context.popRoute(),
                 child: Text(
-                  "İPTAL",
+                  "CANCEL",
                   style: context.textTheme.caption
                       ?.copyWith(color: AppColors.dustyGray600),
                 ))

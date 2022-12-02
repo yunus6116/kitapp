@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import '../../../../core/extensions/context_extensions.dart';
-import '../../styles/text_styles.dart';
-import 'base_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../../core/extensions/context_extensions.dart';
 import '../../styles/colors.dart';
+import '../../styles/text_styles.dart';
 import '../custom_button.dart';
+import 'base_dialog.dart';
 
 class KitappBaseDialog extends HookConsumerWidget {
   final Widget? icon;
@@ -25,14 +25,14 @@ class KitappBaseDialog extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    _buildIcon() {
+    buildIcon() {
       return Container(
         padding: const EdgeInsets.only(bottom: 10),
         child: icon,
       );
     }
 
-    _buildHeading() {
+    buildHeading() {
       return Text(
         heading ?? "",
         style: AppTextStyles.heading1,
@@ -40,7 +40,7 @@ class KitappBaseDialog extends HookConsumerWidget {
       );
     }
 
-    _buildText() {
+    buildText() {
       return Padding(
         padding: const EdgeInsets.only(
           top: 10,
@@ -58,9 +58,9 @@ class KitappBaseDialog extends HookConsumerWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (icon != null) _buildIcon(),
-          if (heading != null) _buildHeading(),
-          if (text != null) _buildText(),
+          if (icon != null) buildIcon(),
+          if (heading != null) buildHeading(),
+          if (text != null) buildText(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

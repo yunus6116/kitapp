@@ -8,7 +8,7 @@ class _PageIndicators extends HookConsumerWidget {
     final currentIntroIndex = ref
         .watch(onBoardingVMProvider.select((value) => value.currentIntroIndex));
 
-    Widget _buildCircle(int index) => AnimatedContainer(
+    Widget buildCircle(int index) => AnimatedContainer(
           duration: theme.normalDuration,
           width: 12,
           height: 12,
@@ -22,7 +22,7 @@ class _PageIndicators extends HookConsumerWidget {
 
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children: List.generate(indicatorCount, _buildCircle).withGap(10),
+      children: List.generate(indicatorCount, buildCircle).withGap(10),
     );
   }
 }
