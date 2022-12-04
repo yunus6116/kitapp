@@ -86,6 +86,7 @@ class _SearchPageState extends State<SearchPage> {
 
   // @override
   // void initState() {
+  // ignore: todo
   //   // TODO: implement initState
   //   super.initState();
   //   addData();
@@ -112,50 +113,82 @@ class _SearchPageState extends State<SearchPage> {
           ),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
-                stream: FirebaseFirestore.instance
-                    .collection('test-book-collection')
-                    .snapshots(),
-                builder: (context, snapshots) {
-                  return (snapshots.connectionState == ConnectionState.waiting)
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : ListView.builder(
-                          itemCount: snapshots.data!.docs.length,
-                          itemBuilder: (context, index) {
-                            var data = snapshots.data!.docs[index].data()
-                                as Map<String, dynamic>;
+              stream: FirebaseFirestore.instance
+                  .collection('test-book-collection')
+                  .snapshots(),
+              builder: (context, snapshots) {
+                return (snapshots.connectionState == ConnectionState.waiting)
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : ListView.builder(
+                        //itemCount: (searchItem.isEmpty) ? (snapshots.data!.docs.length) : 1,
+                        itemCount: snapshots.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          var data = snapshots.data!.docs[index].data()
+                              as Map<String, dynamic>;
 
-                            if (searchItem.isEmpty) {
-                              return ListTile(
-                                title: Text(
-                                  data['bookName'],
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                      color: Colors.black54,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                subtitle: Text(
-                                  data['bookId'].toString(),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                      color: Colors.black54,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                leading: CircleAvatar(
-                                  backgroundImage:
-                                      NetworkImage(data['bookImage']),
-                                ),
-                              );
-                            }
-                            return Container();
-                          });
-                }),
-          )
+                          if (searchItem.isEmpty) {
+                            return ListTile(
+                              title: Text(
+                                data['bookName'],
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: Text(
+                                data['bookId'].toString(),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              leading: CircleAvatar(
+                                backgroundImage:
+                                    NetworkImage(data['bookImage']),
+                              ),
+                            );
+                          }
+                          else if (data['bookName'].toString().toLowerCase().contains(searchItem.toLowerCase())) {
+                            return ListTile(
+                              title: Text(
+                                data['bookName'],
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: Text(
+                                data['bookId'].toString(),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              leading: CircleAvatar(
+                                backgroundImage:
+                                    NetworkImage(data['bookImage']),
+                              ),
+                            );
+                          }
+                          else {
+                          //return const Text('Cannot found what you are searching for :(', textAlign: TextAlign.center,);
+                          return Container();
+                        }
+                        },
+                      );
+              },
+            ),
+          ),
         ],
       ),
     );
