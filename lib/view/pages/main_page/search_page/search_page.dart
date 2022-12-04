@@ -113,9 +113,8 @@ class _SearchPageState extends State<SearchPage> {
           ),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance
-                  .collection('test-book-collection')
-                  .snapshots(),
+              stream:
+                  FirebaseFirestore.instance.collection('books').snapshots(),
               builder: (context, snapshots) {
                 return (snapshots.connectionState == ConnectionState.waiting)
                     ? const Center(
@@ -131,7 +130,7 @@ class _SearchPageState extends State<SearchPage> {
                           if (searchItem.isEmpty) {
                             return ListTile(
                               title: Text(
-                                data['bookName'],
+                                data['nameOfBook'],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
@@ -140,24 +139,26 @@ class _SearchPageState extends State<SearchPage> {
                                     fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                data['bookId'].toString(),
+                                data['author'].toString(),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
                                     color: Colors.black54,
                                     fontSize: 16,
-                                    fontWeight: FontWeight.bold),
+                                    fontWeight: FontWeight.normal),
                               ),
                               leading: CircleAvatar(
                                 backgroundImage:
-                                    NetworkImage(data['bookImage']),
+                                    NetworkImage(data['coverImageUrl']),
                               ),
                             );
-                          }
-                          else if (data['bookName'].toString().toLowerCase().contains(searchItem.toLowerCase())) {
+                          } else if (data['nameOfBook']
+                              .toString()
+                              .toLowerCase()
+                              .contains(searchItem.toLowerCase())) {
                             return ListTile(
                               title: Text(
-                                data['bookName'],
+                                data['nameOfBook'],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
@@ -166,24 +167,23 @@ class _SearchPageState extends State<SearchPage> {
                                     fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                data['bookId'].toString(),
+                                data['author'].toString(),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
                                     color: Colors.black54,
                                     fontSize: 16,
-                                    fontWeight: FontWeight.bold),
+                                    fontWeight: FontWeight.normal),
                               ),
                               leading: CircleAvatar(
                                 backgroundImage:
-                                    NetworkImage(data['bookImage']),
+                                    NetworkImage(data['coverImageUrl']),
                               ),
                             );
+                          } else {
+                            //return const Text('Cannot found what you are searching for :(', textAlign: TextAlign.center,);
+                            return Container();
                           }
-                          else {
-                          //return const Text('Cannot found what you are searching for :(', textAlign: TextAlign.center,);
-                          return Container();
-                        }
                         },
                       );
               },
