@@ -155,6 +155,9 @@ class _SearchPageState extends State<SearchPage> {
                           } else if (data['nameOfBook']
                               .toString()
                               .toLowerCase()
+                              .contains(searchItem.toLowerCase()) || data['author']
+                              .toString()
+                              .toLowerCase()
                               .contains(searchItem.toLowerCase())) {
                             return ListTile(
                               title: Text(
