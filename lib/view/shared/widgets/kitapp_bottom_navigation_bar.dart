@@ -20,7 +20,6 @@ class KitappBottomNavigationBar extends HookConsumerWidget {
     final bottomBarIcons = [
       IconType.home,
       IconType.search,
-      IconType.explore,
       IconType.user
     ];
 

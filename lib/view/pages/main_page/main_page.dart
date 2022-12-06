@@ -20,7 +20,6 @@ class MainPage extends HookWidget {
         routes: const [
           HomeTabRouter(),
           SearchTabRouter(),
-          ExploreTabRouter(),
           MyProfileTabRouter()
         ]);
   }
