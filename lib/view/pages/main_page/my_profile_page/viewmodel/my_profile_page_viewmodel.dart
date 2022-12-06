@@ -11,6 +11,22 @@ import '../../../../../core/services/registration_services.dart';
 final myProfileVMProvider =
     ChangeNotifierProvider.autoDispose((ref) => MyProfileVM(ref));
 
+class User {
+  final String imagePath;
+  final String name;
+  final String about;
+  final String email;
+  final bool isDarkMode;
+
+  const User({
+    required this.imagePath,
+    required this.name,
+    required this.email,
+    required this.about,
+    required this.isDarkMode,
+  });
+}
+
 class MyProfileVM extends ChangeNotifier {
   final Ref ref;
   late AppRouter router;
