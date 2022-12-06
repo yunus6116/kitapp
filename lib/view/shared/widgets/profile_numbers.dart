@@ -6,9 +6,9 @@ class NumbersWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            buildButton(context, '50', 'Followers'),
-            buildButton(context, '50', 'Followers'),
-            buildButton(context, '50', 'Followers'),
+            buildButton(context, '24', 'Reads'),
+            buildButton(context, '83', 'Followers'),
+            buildButton(context, '46', 'Following'),
           ],
         ),
       );
