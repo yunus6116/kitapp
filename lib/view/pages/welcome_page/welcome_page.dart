@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:kitapp/core/extensions/context_extensions.dart';
 
 import '../../../core/routing/router.gr.dart';
 import '../../shared/styles/colors.dart';
@@ -18,6 +19,7 @@ class WelcomePage extends StatelessWidget {
             Column(
               children: [
                 SizedBox(
+                  height: context.dynamicHeight(0.6),
                   width: double.infinity,
                   child: SvgPicture.asset(
                     'assets/svg/welcome.svg',

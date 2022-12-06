@@ -101,6 +101,7 @@ class SignUpVM extends ChangeNotifier {
             error: SnackBarType.error,
             duration: const Duration(seconds: 3));
       }
+      snackBarKey.showSnackBar(message: e.message);
     }
   }
 }
