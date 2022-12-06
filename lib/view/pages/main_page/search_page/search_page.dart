@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:kitapp/view/shared/styles/colors.dart';
 
 import '../../../shared/widgets/custom_appbar.dart';
 
@@ -151,14 +152,41 @@ class _SearchPageState extends State<SearchPage> {
                                 backgroundImage:
                                     NetworkImage(data['coverImageUrl']),
                               ),
+                              trailing: Icon(Icons.star_border_rounded,
+                                  color: AppColors.primary),
                             );
                           } else if (data['nameOfBook']
-                              .toString()
-                              .toLowerCase()
-                              .contains(searchItem.toLowerCase()) || data['author']
-                              .toString()
-                              .toLowerCase()
-                              .contains(searchItem.toLowerCase())) {
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(searchItem.toLowerCase()) ||
+                              data['author']
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(searchItem.toLowerCase())) {
+                            // return Card(
+                            //   child: Row(
+                            //     children: [
+                            //       Container(
+                            //           //height: 100,
+                            //           decoration: BoxDecoration(
+                            //             image: DecorationImage(
+                            //               image: NetworkImage(data['coverImageUrl']),
+                            //               fit: BoxFit.fitHeight
+                            //             ),
+                            //           ),
+                            //           ),
+                            //       SizedBox(
+                            //         width: 400,
+                            //         height: 100,
+                            //         child: ListTile(
+                            //           title: Text(data['nameOfBook']),
+                            //           subtitle: Text(data['author']),
+                            //           trailing: Icon(Icons.star_border_rounded),//Icons.star_rate_rounded
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // );
                             return ListTile(
                               title: Text(
                                 data['nameOfBook'],
@@ -182,6 +210,9 @@ class _SearchPageState extends State<SearchPage> {
                                 backgroundImage:
                                     NetworkImage(data['coverImageUrl']),
                               ),
+                              trailing: Icon(Icons
+                                  .star_border_rounded,
+                                  color: AppColors.primary), //Icons.star_rate_rounded
                             );
                           } else {
                             //return const Text('Cannot found what you are searching for :(', textAlign: TextAlign.center,);
