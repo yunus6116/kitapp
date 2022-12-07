@@ -152,7 +152,7 @@ class _SearchPageState extends State<SearchPage> {
                             backgroundImage:
                                 NetworkImage(data['coverImageUrl']),
                           ),
-                          trailing: Icon(Icons.star_border_rounded,
+                          trailing: const Icon(Icons.star_border_rounded,
                               color: AppColors.primary),
                         );
                       } else if (data['nameOfBook']
@@ -210,7 +210,7 @@ class _SearchPageState extends State<SearchPage> {
                             backgroundImage:
                                 NetworkImage(data['coverImageUrl']),
                           ),
-                          trailing: Icon(Icons.star_border_rounded,
+                          trailing: const Icon(Icons.star_border_rounded,
                               color:
                                   AppColors.primary), //Icons.star_rate_rounded
                         );

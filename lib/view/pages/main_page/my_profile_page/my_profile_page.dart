@@ -63,18 +63,18 @@ class MyProfilePage extends HookConsumerWidget {
 }
 
 Widget buildAbout(User user) => Container(
-      padding: EdgeInsets.symmetric(horizontal: 36),
+      padding: const EdgeInsets.symmetric(horizontal: 36),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'About',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           Text(
             user.about,
-            style: TextStyle(fontSize: 16, height: 1.4),
+            style: const TextStyle(fontSize: 16, height: 1.4),
           ),
         ],
       ),
@@ -88,7 +88,7 @@ Widget buildName(User user) => Column(
         ),
         Text(
           user.email,
-          style: TextStyle(fontSize: 15, color: Colors.grey),
+          style: const TextStyle(fontSize: 15, color: Colors.grey),
         )
       ],
     );

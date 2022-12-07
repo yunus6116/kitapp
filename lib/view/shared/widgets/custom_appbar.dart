@@ -10,6 +10,7 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
   final Widget? leadingIcon;
   final double? elevation;
   final Widget? dropdownMenu;
+  final Widget? titleWidget;
 
   CustomAppbar({
     this.onIconPressed,
@@ -20,6 +21,7 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
     this.leadingIcon,
     this.elevation,
     this.dropdownMenu,
+    this.titleWidget,
   });
 
   Widget _buildTitleText(BuildContext context) => Text(
@@ -33,7 +35,7 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: _buildTitleText(context),
+      title: titleWidget ?? _buildTitleText(context),
       centerTitle: false,
       backgroundColor: context.theme.scaffoldBackgroundColor,
       automaticallyImplyLeading: showBackButton!,

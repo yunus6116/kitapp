@@ -221,7 +221,7 @@ class ControlledTextField extends HookWidget {
                         : isFocused
                             ? focusedBorderColor ??
                                 context.theme.primaryColorDark.withOpacity(0.4)
-                            : context.theme.dividerColor,
+                            : context.theme.primaryColorDark,
                   ),
                 )
               : inputBorder!

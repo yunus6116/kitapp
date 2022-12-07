@@ -10,7 +10,7 @@ class FavoriteBooksWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
         children: [
-          Text(
+          const Text(
             'Favorite Books',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),

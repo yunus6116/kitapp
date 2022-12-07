@@ -13,14 +13,14 @@ class NumbersWidget extends StatelessWidget {
         ),
       );
 
-  Widget buildDivider() => Container(
+  Widget buildDivider() => const SizedBox(
         height: 36,
         child: VerticalDivider(),
       );
 
   Widget buildButton(BuildContext context, String value, String text) =>
       MaterialButton(
-        padding: EdgeInsets.symmetric(vertical: 4),
+        padding: const EdgeInsets.symmetric(vertical: 4),
         onPressed: () {},
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -28,12 +28,12 @@ class NumbersWidget extends StatelessWidget {
           children: <Widget>[
             Text(
               value,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
-            SizedBox(height: 2),
+            const SizedBox(height: 2),
             Text(
               text,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             )
           ],
         ),

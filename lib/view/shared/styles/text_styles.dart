@@ -43,6 +43,8 @@ class AppTextStyles {
 
   static TextStyle heading6 = _getTextStyle(17, FontWeight.w700);
 
+  static TextStyle heading7 = _getTextStyle(24, FontWeight.w500);
+
   // bottomNavBar
   static TextStyle bottomNavBar = _getTextStyle(14, FontWeight.w500);
   // bottomNavBar
