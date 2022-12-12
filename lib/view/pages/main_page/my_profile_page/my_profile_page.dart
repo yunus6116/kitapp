@@ -7,7 +7,6 @@ import 'package:kitapp/view/shared/widgets/profile.dart';
 import '../../../shared/styles/colors.dart';
 import '../../../shared/widgets/custom_appbar.dart';
 import '../../../shared/widgets/custom_button.dart';
-import '../../../shared/widgets/profile_numbers.dart';
 import 'viewmodel/my_profile_page_viewmodel.dart';
 
 class MyProfilePage extends HookConsumerWidget {
@@ -31,18 +30,13 @@ class MyProfilePage extends HookConsumerWidget {
           ),
           const SizedBox(height: 24),
           buildName(user),
-          const SizedBox(height: 12),
-          NumbersWidget(),
-          const SizedBox(height: 24),
-          buildAbout(user),
-          const SizedBox(height: 12),
           FavoriteBooksWidget(),
           const SizedBox(height: 36),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   CustomButton(
                     buttonText: 'Log out',
@@ -62,33 +56,18 @@ class MyProfilePage extends HookConsumerWidget {
   }
 }
 
-Widget buildAbout(User user) => Container(
-      padding: EdgeInsets.symmetric(horizontal: 36),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            'About',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            user.about,
-            style: TextStyle(fontSize: 16, height: 1.4),
-          ),
-        ],
-      ),
-    );
-
 Widget buildName(User user) => Column(
       children: [
         Text(
           user.name,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 17,
+              color: Color(0xff4D506C)),
         ),
         Text(
           user.email,
-          style: TextStyle(fontSize: 15, color: Colors.grey),
-        )
+          style: const TextStyle(fontSize: 13, color: Color(0xff4D506C)),
+        ),
       ],
     );
