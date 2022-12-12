@@ -25,7 +25,6 @@ class MyProfilePage extends HookConsumerWidget {
         physics: const BouncingScrollPhysics(),
         children: [
           ProfileWidget(
-            imagePath: user.imagePath,
             onClicked: () async {},
           ),
           const SizedBox(height: 24),
