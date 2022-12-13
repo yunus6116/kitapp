@@ -101,9 +101,9 @@ class SignUpPage extends HookConsumerWidget {
                             textInputType: TextInputType.emailAddress,
                             onChange: (value) {
                               ref.read(signUpVMProvider).setPublicUserLastname(
-                                  nameController.text.isEmpty
+                                  lastNameController.text.isEmpty
                                       ? null
-                                      : nameController.text.trim());
+                                      : lastNameController.text.trim());
                               lastName.value = value;
                             },
                             validate: (value) {
