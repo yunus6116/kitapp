@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:kitapp/core/global_models/public_user/date_model.dart';
+import 'package:kitapp/core/global_models/date_model.dart';
 
 import 'verify_status_model.dart';
 

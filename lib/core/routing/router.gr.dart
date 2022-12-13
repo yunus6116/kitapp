@@ -101,7 +101,7 @@ class AppRouter extends _i12.RootStackRouter {
     HomeRoute.name: (routeData) {
       return _i12.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i9.HomePage(),
+        child: _i9.HomePage(),
       );
     },
     SearchRoute.name: (routeData) {

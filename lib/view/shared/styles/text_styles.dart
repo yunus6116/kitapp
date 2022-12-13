@@ -30,6 +30,9 @@ class AppTextStyles {
   // body6
   static TextStyle body6 = _getTextStyle(15, FontWeight.w600);
 
+  // body7
+  static TextStyle body7 = _getTextStyle(10, FontWeight.w500);
+
   // heading
   static TextStyle heading1 = _getTextStyle(22, FontWeight.w600);
 

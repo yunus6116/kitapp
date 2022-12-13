@@ -4,25 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../core/global_models/public_user/public_user_model.dart';
-
-enum IconType { home, search, explore, user }
+enum IconType { home, search, user }
 
 class AppIcons extends HookConsumerWidget {
   final IconType iconType;
   final Color iconColor;
   final double? width;
-  final PublicUser? currentUser;
-  final bool hasNewMessage;
-  final bool hasNewNotification;
 
   const AppIcons({
     required this.iconType,
     this.iconColor = Colors.white,
     this.width,
-    this.currentUser,
-    this.hasNewMessage = false,
-    this.hasNewNotification = false,
   });
 
   @override
@@ -40,8 +32,6 @@ class AppIcons extends HookConsumerWidget {
         return _buildIcon(Icons.home);
       case IconType.search:
         return _buildIcon(Icons.search);
-      case IconType.explore:
-        return _buildIcon(Icons.explore);
       case IconType.user:
         return _buildIcon(Icons.person);
 
