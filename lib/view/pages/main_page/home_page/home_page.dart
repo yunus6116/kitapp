@@ -9,6 +9,8 @@ import 'package:kitapp/view/shared/styles/colors.dart';
 import 'package:kitapp/view/shared/styles/text_styles.dart';
 import 'package:kitapp/view/shared/widgets/shimmers/shimmer_effect.dart';
 
+import '../../../../core/global_models/book_model/book_model.dart';
+import '../../../shared/widgets/base_async_provider.dart';
 import '../../../shared/widgets/custom_appbar.dart';
 
 class HomePage extends StatefulHookConsumerWidget {
@@ -31,6 +33,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     final sliderList = ref.read(homePageVMProvider).sliderList;
     final editorsChoiceList = ref.watch(homePageVMProvider).editorsChoiceList;
     final topSellersList = ref.watch(homePageVMProvider).topSellersList;
+    final editorsChoiceFProvider = ref.read(editorsChoiceFutureProvider);
 
     Widget buildImage(String url) {
       final image = NetworkImage(url);
@@ -116,6 +119,50 @@ class _HomePageState extends ConsumerState<HomePage> {
                 child: Column(
                   children: [
                     // Editor's Choice
+                    // Need Size !!!!!!!!!!
+                    // BaseAsyncProvider(
+                    //   value: editorsChoiceFProvider,
+                    //   builder: (List<BookModel> liste) {
+                    //     return ListView.builder(
+                    //         scrollDirection: Axis.horizontal,
+                    //         shrinkWrap: true,
+                    //         itemCount: liste.length,
+                    //         itemBuilder: ((context, index) {
+                    //           return InkWell(
+                    //             onTap: () {},
+                    //             child: Container(
+                    //               height:
+                    //                   MediaQuery.of(context).size.height * .2,
+                    //               decoration: BoxDecoration(
+                    //                 borderRadius: BorderRadius.circular(8),
+                    //               ),
+                    //               child: Stack(
+                    //                 children: [
+                    //                   CachedNetworkImage(
+                    //                     imageUrl: liste[index]
+                    //                             .coverImageUrl ??
+                    //                         '',
+                    //                     placeholder: (_, __) => ShimmerEffect(
+                    //                       child: Container(
+                    //                         color: Colors.white,
+                    //                       ),
+                    //                     ),
+                    //                     imageBuilder: (_, imageLink) {
+                    //                       return Material(
+                    //                         type: MaterialType.transparency,
+                    //                         child: SizedBox.expand(
+                    //                           child: Container(),
+                    //                         ),
+                    //                       );
+                    //                     },
+                    //                   ),
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //           );
+                    //         }));
+                    //   },
+                    // ),
                     editorsChoiceList.isEmpty
                         ? SizedBox(
                             height: MediaQuery.of(context).size.height * .2,
