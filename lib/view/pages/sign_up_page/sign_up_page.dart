@@ -37,7 +37,7 @@ class SignUpPage extends HookConsumerWidget {
         password.value != '' &&
         password.value.length >= 6);
     return Scaffold(
-      appBar: CustomAppbar(
+      appBar: CustomAppBar(
         title: 'Sign Up',
       ),
       body: SafeArea(

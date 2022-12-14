@@ -14,6 +14,10 @@ abstract class AppColors {
 
   static const Color primaryTextColor = Color(0xFF4D506C);
 
+  static const Color bottomBarColor = Color(0xFF292B38);
+
+  static const Color passiveColor = Color(0xFFCACACA);
+
   ///Added on 20.08.2022 new color update
   static const Color plum = Color(0xff751E6C);
   static const Color tawnyPort = Color(0xff651A5D);

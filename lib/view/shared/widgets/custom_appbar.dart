@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/extensions/context_extensions.dart';
 
-class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final bool? hasTitle, showBackButton;
   final String? title;
   final IconData? iconData;
@@ -12,7 +12,7 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
   final Widget? dropdownMenu;
   final Widget? titleWidget;
 
-  CustomAppbar({
+  CustomAppBar({
     this.onIconPressed,
     this.hasTitle = false,
     this.title,

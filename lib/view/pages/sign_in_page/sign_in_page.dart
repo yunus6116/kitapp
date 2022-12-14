@@ -27,7 +27,7 @@ class SignInPage extends HookConsumerWidget {
     final passwordVisible = useState(false);
 
     return Scaffold(
-      appBar: CustomAppbar(
+      appBar: CustomAppBar(
         title: 'Login',
       ),
       body: SafeArea(
