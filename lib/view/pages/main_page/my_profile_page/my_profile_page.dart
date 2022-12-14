@@ -18,7 +18,7 @@ class MyProfilePage extends HookConsumerWidget {
     const user = UserPreferences.myUser;
 
     return Scaffold(
-      appBar: CustomAppbar(
+      appBar: CustomAppBar(
         title: 'My Profile Page',
         showBackButton: false,
       ),

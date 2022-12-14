@@ -32,13 +32,16 @@ class HomePageVM extends ChangeNotifier {
       rethrow;
     }
   }
+
+  Future<void> getTopSellersList() async {
+    try {
+      topSellersList = await ref.read(bookServicesProvider).getTopSellers();
+      notifyListeners();
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
 
 final homePageVMProvider =
     ChangeNotifierProvider.autoDispose((ref) => HomePageVM(ref));
-
-final editorsChoiceFutureProvider = FutureProvider<List<BookModel>>((ref) async {
-  List<BookModel> editorsChoiceList = [];
-  editorsChoiceList = await ref.read(bookServicesProvider).getEditorsChoice();
-  return editorsChoiceList;
-});

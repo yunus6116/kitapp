@@ -12,7 +12,7 @@ class BookModel {
   String? nameOfBook;
   int? pages;
   Timestamp? releaseDate;
-  int? star;
+  double? star;
   BookModel({
     this.aboutBook,
     this.author,
@@ -36,7 +36,7 @@ class BookModel {
     String? nameOfBook,
     int? pages,
     Timestamp? releaseDate,
-    int? star,
+    double? star,
   }) {
     return BookModel(
       aboutBook: aboutBook ?? this.aboutBook,
@@ -80,7 +80,7 @@ class BookModel {
           map['nameOfBook'] != null ? map['nameOfBook'] as String : null,
       pages: map['pages'] != null ? map['pages'] as int : null,
       releaseDate: map['releaseDate'],
-      star: map['star'] != null ? map['star'] as int : null,
+      star: map['star'] != null ? double.parse(map['star'].toString()) : null,
     );
   }
 }
