@@ -45,6 +45,34 @@ class _SearchPageState extends State<SearchPage> {
 
                 //If connection is provided
                 if (snapshot.connectionState == ConnectionState.done) {
+
+                  //User has not typed yet -> Show categories
+                  if (searchItem.isEmpty) {
+                    var categories = ['Adventure','Child','Classics','Detective Fiction','dictionary','History','science fiction'];
+                    final ScrollController controllerOne = ScrollController();
+                    return CupertinoScrollbar(
+                      controller: controllerOne,
+                      thickness: 5.0,
+                      child: ListView.builder(
+                        controller: controllerOne,
+                        itemCount: categories.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            padding: EdgeInsets.fromLTRB(100, 10, 10, 100),
+                            decoration: BoxDecoration(
+                              image: DecorationImage(image: NetworkImage("https://static.stacker.com/s3fs-public/2022-04/classic-books.png"),),
+                              border: Border.all(
+                              width: 0.5,
+                              style: BorderStyle.solid,
+                            ),borderRadius: BorderRadius.all(Radius.circular(10))),
+                            height: 200,
+                            width: double.maxFinite,
+                            child: Center(child: Text(categories[index], style: TextStyle(color: Color(0xfff5f5f5)),)),
+                          );
+                        }
+                      ),);
+                  }
+
                   //If data and document exist
                   if (snapshot.hasData) {
                     final ScrollController controllerOne = ScrollController();
@@ -59,35 +87,35 @@ class _SearchPageState extends State<SearchPage> {
                               as Map<String, dynamic>;
 
                           //User has not typed yet -> (TEMPORARY) Show all / () Show categories
-                          if (searchItem.isEmpty) {
-                            return ListTile(
-                              title: Text(
-                                data['nameOfBook'],
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                    color: Colors.black54,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              subtitle: Text(
-                                data['author'].toString(),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                    color: Colors.black54,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                              leading: CircleAvatar(
-                                backgroundImage:
-                                    NetworkImage(data['coverImageUrl']),
-                              ),
-                            );
-                          }
+                          //if (searchItem.isEmpty) {
+                            // return ListTile(
+                            //   title: Text(
+                            //     data['nameOfBook'],
+                            //     maxLines: 1,
+                            //     overflow: TextOverflow.ellipsis,
+                            //     style: const TextStyle(
+                            //         color: Colors.black54,
+                            //         fontSize: 16,
+                            //         fontWeight: FontWeight.bold),
+                            //   ),
+                            //   subtitle: Text(
+                            //     data['author'].toString(),
+                            //     maxLines: 1,
+                            //     overflow: TextOverflow.ellipsis,
+                            //     style: const TextStyle(
+                            //         color: Colors.black54,
+                            //         fontSize: 16,
+                            //         fontWeight: FontWeight.normal),
+                            //   ),
+                            //   leading: CircleAvatar(
+                            //     backgroundImage:
+                            //         NetworkImage(data['coverImageUrl']),
+                            //   ),
+                            // );
+                          //}
 
                           //User is typing
-                          else if (data['nameOfBook']
+                          if (data['nameOfBook']
                                   .toString()
                                   .toLowerCase()
                                   .contains(searchItem.toLowerCase()) ||
