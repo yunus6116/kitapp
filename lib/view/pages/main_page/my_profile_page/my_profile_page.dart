@@ -96,6 +96,7 @@ Widget buildButton(String title, String iconName, BuildContext context) =>
           buttonText: title,
           backgroundColor: Colors.white,
           textColor: const Color(0xff4D506C),
+          textAlign: TextAlign.left,
           height: 55,
           borderRadius: 11,
           width: MediaQuery.of(context).size.width - 40,

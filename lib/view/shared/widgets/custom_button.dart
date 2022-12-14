@@ -18,6 +18,7 @@ class CustomButton extends HookConsumerWidget {
   final Widget? icon, suffixIcon;
   final TextStyle? buttonTextStyle;
   final Color? progressIndicatorColor;
+  final TextAlign? textAlign;
 
   const CustomButton({
     required this.buttonText,
@@ -38,6 +39,7 @@ class CustomButton extends HookConsumerWidget {
     this.showBorder = false,
     this.buttonTextStyle,
     this.progressIndicatorColor,
+    this.textAlign,
   });
 
   @override
@@ -116,7 +118,7 @@ class CustomButton extends HookConsumerWidget {
                           AppTextStyles.textButton1.copyWith(
                               color:
                                   isDisabled ? Colors.white : buttonTextColor),
-                      textAlign: TextAlign.center,
+                      textAlign: textAlign?? TextAlign.center,
                     ),
                   ),
                   if (suffixIcon != null)
