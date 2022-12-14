@@ -42,12 +42,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                   children: [
                     // Editor's Choice
                     BooksListWidget(
-                      editorsChoiceList: editorsChoiceList,
+                      bookList: editorsChoiceList,
                       title: 'Editor\'s Choice',
                     ),
                     // Top Sellers
                     BooksListWidget(
-                      editorsChoiceList: topSellersList,
+                      bookList: topSellersList,
                       title: 'Top Sellers',
                     ),
                   ],

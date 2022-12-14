@@ -8,11 +8,11 @@ import '../../../../shared/widgets/shimmers/shimmer_effect.dart';
 class BooksListWidget extends StatelessWidget {
   const BooksListWidget({
     Key? key,
-    required this.editorsChoiceList,
+    required this.bookList,
     this.title,
   }) : super(key: key);
 
-  final List<BookModel> editorsChoiceList;
+  final List<BookModel> bookList;
   final String? title;
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class BooksListWidget extends StatelessWidget {
         const SizedBox(height: 12),
         if (title != null) Text(title!, style: AppTextStyles.heading6),
         if (title != null) const SizedBox(height: 12),
-        editorsChoiceList.isEmpty
+        bookList.isEmpty
             ? SizedBox(
                 height: MediaQuery.of(context).size.height * .2,
                 child: ShimmerEffect(
@@ -44,10 +44,10 @@ class BooksListWidget extends StatelessWidget {
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
-                    itemCount: editorsChoiceList.length,
+                    itemCount: bookList.length,
                     itemBuilder: ((context, index) {
                       return BookCardWidget(
-                          bookModel: editorsChoiceList[index]);
+                          bookModel: bookList[index]);
                     })),
               ),
         const SizedBox(height: 12),
