@@ -29,7 +29,7 @@ class MyProfilePage extends HookConsumerWidget {
               onClicked: () async {},
             ),
             const SizedBox(height: 24),
-            buildName(currentUser!),
+            buildName(currentUser),
             const SizedBox(height: 30),
             buildButton("My Favourite Books", "profile_favourite", context),
             const Divider(
@@ -70,17 +70,17 @@ class MyProfilePage extends HookConsumerWidget {
   }
 }
 
-Widget buildName(PublicUser user) => Column(
+Widget buildName(PublicUser? user) => Column(
       children: [
         Text(
-          "${user.firstName ?? "Name"} ${user.lastName ?? "Surname"}",
+          "${user?.firstName ?? "Name"} ${user?.lastName ?? "Surname"}",
           style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 17,
               color: Color(0xff4D506C)),
         ),
         Text(
-          user.email ?? "Email",
+          user?.email ?? "Email",
           style: const TextStyle(fontSize: 13, color: Color(0xff4D506C)),
         ),
       ],

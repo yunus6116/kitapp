@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kitapp/view/shared/styles/colors.dart';
 
 class ProfileWidget extends StatelessWidget {
   final VoidCallback onClicked;
@@ -19,6 +20,7 @@ class ProfileWidget extends StatelessWidget {
             child: SvgPicture.asset(
               'assets/svg/profile_icon.svg',
               fit: BoxFit.cover,
+              color: AppColors.primaryTextColor,
             ),
           )
         ],
