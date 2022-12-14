@@ -47,7 +47,7 @@ class RegistrationServices extends IRegistrationServices {
   RegistrationServices(this.ref) {
     _fireStore = ref.read(fireStoreProvider);
     _firebaseAuth = ref.read(authProvider);
-    _usersRef = _fireStore.collection(CollectionName.users.collectionName);
+    _usersRef = _fireStore.collection(CollectionName.users.name);
   }
 
   @override
@@ -57,7 +57,7 @@ class RegistrationServices extends IRegistrationServices {
     try {
       PublicUser? publicUser = ref.read(signUpVMProvider).publicUser;
       DocumentReference documentReference = _fireStore
-          .collection(CollectionName.users.collectionName)
+          .collection(CollectionName.users.name)
           .doc(user!.uid);
       PublicUser publicUserToFireStore =
           PublicUser.fromUserCredential(user, publicUser);
@@ -125,7 +125,7 @@ class RegistrationServices extends IRegistrationServices {
       {required UserCredential userCredential}) async {
     try {
       DocumentReference documentReference = _fireStore
-          .collection(CollectionName.users.collectionName)
+          .collection(CollectionName.users.name)
           .doc(userCredential.user!.uid);
       PublicUser? currentUser = await getCurrentUser(userCredential.user!.uid);
       VerifyStatus verifyStatus = VerifyStatus(

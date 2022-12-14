@@ -37,7 +37,7 @@ class SignUpPage extends HookConsumerWidget {
         password.value != '' &&
         password.value.length >= 6);
     return Scaffold(
-      appBar: CustomAppbar(
+      appBar: CustomAppBar(
         title: 'Sign Up',
       ),
       body: SafeArea(
@@ -101,9 +101,9 @@ class SignUpPage extends HookConsumerWidget {
                             textInputType: TextInputType.emailAddress,
                             onChange: (value) {
                               ref.read(signUpVMProvider).setPublicUserLastname(
-                                  nameController.text.isEmpty
+                                  lastNameController.text.isEmpty
                                       ? null
-                                      : nameController.text.trim());
+                                      : lastNameController.text.trim());
                               lastName.value = value;
                             },
                             validate: (value) {

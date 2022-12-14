@@ -19,7 +19,7 @@ class ForgotPasswordPage extends HookConsumerWidget {
         forgotPasswordVMProvider.select((value) => value.emailController));
 
     return Scaffold(
-      appBar: CustomAppbar(
+      appBar: CustomAppBar(
         title: 'Forgot Password',
       ),
       body: SafeArea(

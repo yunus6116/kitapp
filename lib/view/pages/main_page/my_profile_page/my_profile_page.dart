@@ -19,7 +19,7 @@ class MyProfilePage extends HookConsumerWidget {
         .watch(authManagerProvider.select((value) => value.currentUserModel));
 
     return Scaffold(
-        appBar: CustomAppbar(
+        appBar: CustomAppBar(
           title: 'My Profile Page',
           showBackButton: false,
         ),
@@ -95,7 +95,7 @@ Widget buildButton(String title, String iconName, BuildContext context) =>
           icon: SvgPicture.asset("assets/svg/$iconName.svg"),
           buttonText: title,
           backgroundColor: Colors.white,
-          textColor: Color(0xff4D506C),
+          textColor: const Color(0xff4D506C),
           height: 55,
           borderRadius: 11,
           width: MediaQuery.of(context).size.width - 40,

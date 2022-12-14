@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 
 import '../../view/pages/forgot_password_page/forgot_password_page.dart';
-import '../../view/pages/main_page/explore_page/explore_page.dart';
 import '../../view/pages/main_page/home_page/home_page.dart';
 import '../../view/pages/main_page/main_page.dart';
 import '../../view/pages/main_page/my_profile_page/my_profile_page.dart';
@@ -29,17 +28,9 @@ import '../../view/pages/welcome_page/welcome_page.dart';
       AutoRoute(
         path: "search-tab",
         name: "SearchTabRouter",
-        page: EmptyRouterPage,
+        page: EmptyRouterPage ,
         children: [
           AutoRoute(path: "", page: SearchPage),
-        ],
-      ),
-      AutoRoute(
-        path: "explore-tab",
-        name: "ExploreTabRouter",
-        page: EmptyRouterPage,
-        children: [
-          AutoRoute(path: "", page: ExplorePage),
         ],
       ),
       AutoRoute(
