@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
+import 'package:kitapp/view/pages/book_detail_page/book_detail_page.dart';
+import 'package:kitapp/view/pages/webview_page/webview_page.dart';
 
 import '../../view/pages/forgot_password_page/forgot_password_page.dart';
 import '../../view/pages/main_page/home_page/home_page.dart';
@@ -28,7 +30,7 @@ import '../../view/pages/welcome_page/welcome_page.dart';
       AutoRoute(
         path: "search-tab",
         name: "SearchTabRouter",
-        page: EmptyRouterPage ,
+        page: EmptyRouterPage,
         children: [
           AutoRoute(path: "", page: SearchPage),
         ],
@@ -47,6 +49,8 @@ import '../../view/pages/welcome_page/welcome_page.dart';
     AutoRoute(page: SignInPage),
     AutoRoute(page: SignUpPage),
     AutoRoute(page: ForgotPasswordPage),
+    AutoRoute(page: BookDetailPage),
+    AutoRoute(page: WebViewPage),
   ],
 )
 class $AppRouter {}
