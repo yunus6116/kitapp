@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kitapp/core/extensions/context_extensions.dart';
+import '../../../shared/styles/colors.dart';
 
+import '../../../shared/widgets/app_icons.dart';
 import '../../../shared/widgets/custom_appbar.dart';
 
 class SearchPage extends StatefulWidget {
@@ -12,21 +15,37 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  final _controller = TextEditingController();
   String searchItem = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Search Page',
-        showBackButton: false,
-      ),
+          titleWidget: const Text(
+        'Search & Book Categories',
+        style: TextStyle(color: AppColors.primary, fontSize: 21),
+      )),
       body: Column(
         children: [
           TextField(
-            decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                hintText: 'Search for books or authors'),
+            controller: _controller,
+            decoration: InputDecoration(
+              prefixIcon: const Icon(Icons.search),
+              suffixIcon: IconButton(
+                icon: searchItem.isEmpty ?  AppIcons(iconType: IconType.clear_text_icon,
+                iconColor: context.theme.canvasColor, width: 20,) : const AppIcons(iconType: IconType.clear_text_icon,
+                iconColor: Color(0xff4D506C), width: 20,),
+                onPressed: () {
+                  setState(() {
+                    searchItem = '';
+                    _controller.clear();
+                  });
+                },
+              ),
+              hintText: 'Search for books or authors',
+              prefixIconColor: context.theme.secondaryHeaderColor,
+            ),
             onChanged: (val) {
               setState(() {
                 searchItem = val;
@@ -72,7 +91,10 @@ Widget getCategories() {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 54, 54, 54),
                         image: DecorationImage(
+                          colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(0.6), BlendMode.dstATop),
                           image: NetworkImage(data['categoryImage']),
                           fit: BoxFit.cover,
                         ),
@@ -118,6 +140,8 @@ Widget getCategoryName(ref) {
     categoryName!,
     style: const TextStyle(
       color: Color(0xfff5f5f5),
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
     ),
   );
 }
