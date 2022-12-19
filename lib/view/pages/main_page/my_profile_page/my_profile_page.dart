@@ -3,12 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kitapp/core/global_models/public_user/public_user_model.dart';
 import 'package:kitapp/view/shared/widgets/profile.dart';
+import 'package:auto_route/auto_route.dart';
 
 import '../../../shared/styles/colors.dart';
 import '../../../shared/widgets/custom_appbar.dart';
 import '../../../shared/widgets/custom_button.dart';
 import 'viewmodel/my_profile_page_viewmodel.dart';
 import '../../../../core/init/auth_manager/auth_manager.dart';
+import '../../../../core/routing/router.gr.dart';
 
 class MyProfilePage extends HookConsumerWidget {
   const MyProfilePage({super.key});
@@ -100,7 +102,7 @@ Widget buildButton(String title, String iconName, BuildContext context) =>
           borderRadius: 11,
           width: MediaQuery.of(context).size.width - 40,
           onPressed: () async {
-            //await ref.read(myProfileVMProvider).logout();
+            await context.router.navigate(const FavouritesRoute());
           },
         ),
       ],

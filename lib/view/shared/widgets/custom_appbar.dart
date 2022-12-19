@@ -11,6 +11,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final double? elevation;
   final Widget? dropdownMenu;
   final Widget? titleWidget;
+  final Color? primaryColor;
 
   CustomAppBar({
     this.onIconPressed,
@@ -22,6 +23,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     this.elevation,
     this.dropdownMenu,
     this.titleWidget,
+    this.primaryColor,
   });
 
   Widget _buildTitleText(BuildContext context) => Text(
@@ -29,7 +31,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         style: context.textTheme.headline6!.copyWith(
             fontSize: 17,
             fontWeight: FontWeight.normal,
-            color: context.theme.primaryColorDark),
+            color: primaryColor ?? context.theme.primaryColorDark),
       );
 
   @override
@@ -40,7 +42,8 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       backgroundColor: context.theme.scaffoldBackgroundColor,
       automaticallyImplyLeading: showBackButton!,
       leading: leadingIcon,
-      iconTheme: context.theme.iconTheme.copyWith(color: Colors.black),
+      iconTheme:
+          context.theme.iconTheme.copyWith(color: primaryColor ?? Colors.black),
       elevation: elevation ?? 0,
       actions: [
         dropdownMenu ?? const SizedBox(),
