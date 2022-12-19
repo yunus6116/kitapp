@@ -31,11 +31,22 @@ class BookDetailPage extends HookConsumerWidget {
                 pinned: true,
                 expandedHeight: MediaQuery.of(context).size.height * .2,
                 flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
                   collapseMode: CollapseMode.pin,
-                  title: Text(
-                    '${book.nameOfBook}\n${book.author}',
-                    style: const TextStyle(
-                      color: AppColors.black,
+                  title: Container(
+                    height: MediaQuery.of(context).size.height * .2,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.2),
+                    ),
+                    child: Center(
+                      child: Text(
+                        '${book.nameOfBook}',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: AppColors.whiteButtonColor,
+                        ),
+                      ),
                     ),
                   ),
                   background: CachedNetworkImage(
@@ -48,7 +59,7 @@ class BookDetailPage extends HookConsumerWidget {
                     fit: BoxFit.fitWidth,
                   ),
                 ),
-                iconTheme: const IconThemeData(color: Colors.black),
+                iconTheme: const IconThemeData(color: Colors.white),
                 actions: [
                   IconButton(
                     onPressed: () {},

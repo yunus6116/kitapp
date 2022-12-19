@@ -13,7 +13,7 @@ import '../../view/pages/sign_in_page/sign_in_page.dart';
 import '../../view/pages/sign_up_page/sign_up_page.dart';
 import '../../view/pages/splash_page/splash_page.dart';
 import '../../view/pages/welcome_page/welcome_page.dart';
-import '../../view/pages/main_page/favourites_page/favourites_page.dart';
+import '../../view/pages/main_page/book_grild_list_page/book_grid_list_page.dart';
 
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -50,7 +50,7 @@ import '../../view/pages/main_page/favourites_page/favourites_page.dart';
     AutoRoute(page: SignInPage),
     AutoRoute(page: SignUpPage),
     AutoRoute(page: ForgotPasswordPage),
-    AutoRoute(page: FavouritesPage),
+    AutoRoute(page: BookGridListPage),
     AutoRoute(page: BookDetailPage),
     AutoRoute(page: WebViewPage),
   ],

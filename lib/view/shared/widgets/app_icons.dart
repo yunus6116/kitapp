@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-enum IconType { home, search, user, clear_text_icon }
+enum IconType { home, search, user, clearTextIcon }
 
 class AppIcons extends HookConsumerWidget {
   final IconType iconType;
@@ -34,7 +34,7 @@ class AppIcons extends HookConsumerWidget {
         return _buildIcon(Icons.search);
       case IconType.user:
         return _buildIcon(Icons.person);
-      case IconType.clear_text_icon:
+      case IconType.clearTextIcon:
       return _buildSvg('clear_text_icon');
 
       default:

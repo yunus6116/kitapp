@@ -6,11 +6,11 @@ import '../../../../../core/routing/router.gr.dart';
 import '../../../../../core/routing/router_provider.dart';
 import '../../../../../core/services/book_services.dart';
 
-class FavouritesPageVM extends ChangeNotifier {
+class BookGridListVM extends ChangeNotifier {
   final Ref ref;
   late AppRouter router;
 
-  FavouritesPageVM(this.ref) {
+  BookGridListVM(this.ref) {
     router = ref.read(routerProvider);
   }
 
@@ -27,5 +27,5 @@ class FavouritesPageVM extends ChangeNotifier {
   }
 }
 
-final favouritesPageVMProvider =
-    ChangeNotifierProvider.autoDispose((ref) => FavouritesPageVM(ref));
+final bookGridListVMProvider =
+    ChangeNotifierProvider.autoDispose((ref) => BookGridListVM(ref));

@@ -103,7 +103,8 @@ Widget buildButton(String title, String iconName, BuildContext context) =>
           borderRadius: 11,
           width: MediaQuery.of(context).size.width - 40,
           onPressed: () async {
-            await context.router.navigate(const FavouritesRoute());
+            await context.router
+                .navigate(BookGridListRoute(title: "My Favourite Books"));
           },
         ),
       ],
