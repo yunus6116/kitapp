@@ -34,7 +34,7 @@ class BookDetailPage extends HookConsumerWidget {
                   collapseMode: CollapseMode.pin,
                   title: Text(
                     '${book.nameOfBook}\n${book.author}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.black,
                     ),
                   ),
@@ -48,11 +48,11 @@ class BookDetailPage extends HookConsumerWidget {
                     fit: BoxFit.fitWidth,
                   ),
                 ),
-                iconTheme: IconThemeData(color: Colors.black),
+                iconTheme: const IconThemeData(color: Colors.black),
                 actions: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.favorite_border,
                     ),
                   )
