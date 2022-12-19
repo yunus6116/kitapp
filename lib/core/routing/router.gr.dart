@@ -11,49 +11,51 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i12;
-import 'package:auto_route/empty_router_widgets.dart' as _i8;
-import 'package:flutter/material.dart' as _i13;
+import 'package:auto_route/auto_route.dart' as _i13;
+import 'package:auto_route/empty_router_widgets.dart' as _i9;
+import 'package:flutter/material.dart' as _i14;
+import 'package:kitapp/view/pages/main_page/favourites_page/favourites_page.dart'
+    as _i8;
 import 'package:kitapp/view/pages/forgot_password_page/forgot_password_page.dart'
     as _i7;
-import 'package:kitapp/view/pages/main_page/home_page/home_page.dart' as _i9;
+import 'package:kitapp/view/pages/main_page/home_page/home_page.dart' as _i10;
 import 'package:kitapp/view/pages/main_page/main_page.dart' as _i2;
 import 'package:kitapp/view/pages/main_page/my_profile_page/my_profile_page.dart'
-    as _i11;
+    as _i12;
 import 'package:kitapp/view/pages/main_page/search_page/search_page.dart'
-    as _i10;
+    as _i11;
 import 'package:kitapp/view/pages/onboarding_page/onboarding_page.dart' as _i3;
 import 'package:kitapp/view/pages/sign_in_page/sign_in_page.dart' as _i5;
 import 'package:kitapp/view/pages/sign_up_page/sign_up_page.dart' as _i6;
 import 'package:kitapp/view/pages/splash_page/splash_page.dart' as _i1;
 import 'package:kitapp/view/pages/welcome_page/welcome_page.dart' as _i4;
 
-class AppRouter extends _i12.RootStackRouter {
-  AppRouter([_i13.GlobalKey<_i13.NavigatorState>? navigatorKey])
+class AppRouter extends _i13.RootStackRouter {
+  AppRouter([_i14.GlobalKey<_i14.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i12.PageFactory> pagesMap = {
+  final Map<String, _i13.PageFactory> pagesMap = {
     SplashRoute.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i1.SplashPage(),
       );
     },
     MainRoute.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i2.MainPage(),
       );
     },
     OnboardingRoute.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i3.OnboardingPage(),
       );
     },
     WelcomeRoute.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i4.WelcomePage(),
       );
@@ -61,13 +63,13 @@ class AppRouter extends _i12.RootStackRouter {
     SignInRoute.name: (routeData) {
       final args = routeData.argsAs<SignInRouteArgs>(
           orElse: () => const SignInRouteArgs());
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i5.SignInPage(key: args.key),
       );
     },
     SignUpRoute.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i6.SignUpPage(),
       );
@@ -75,89 +77,95 @@ class AppRouter extends _i12.RootStackRouter {
     ForgotPasswordRoute.name: (routeData) {
       final args = routeData.argsAs<ForgotPasswordRouteArgs>(
           orElse: () => const ForgotPasswordRouteArgs());
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i7.ForgotPasswordPage(key: args.key),
       );
     },
-    HomeTabRouter.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+    FavouritesRoute.name: (routeData) {
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i8.EmptyRouterPage(),
+        child: _i8.FavouritesPage(),
+      );
+    },
+    HomeTabRouter.name: (routeData) {
+      return _i13.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i9.EmptyRouterPage(),
       );
     },
     SearchTabRouter.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i8.EmptyRouterPage(),
+        child: const _i9.EmptyRouterPage(),
       );
     },
     MyProfileTabRouter.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i8.EmptyRouterPage(),
+        child: const _i9.EmptyRouterPage(),
       );
     },
     HomeRoute.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i9.HomePage(),
+        child: _i10.HomePage(),
       );
     },
     SearchRoute.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i10.SearchPage(),
+        child: const _i11.SearchPage(),
       );
     },
     MyProfileRoute.name: (routeData) {
-      return _i12.AdaptivePage<dynamic>(
+      return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i11.MyProfilePage(),
+        child: const _i12.MyProfilePage(),
       );
     },
   };
 
   @override
-  List<_i12.RouteConfig> get routes => [
-        _i12.RouteConfig(
+  List<_i13.RouteConfig> get routes => [
+        _i13.RouteConfig(
           SplashRoute.name,
           path: '/',
         ),
-        _i12.RouteConfig(
+        _i13.RouteConfig(
           MainRoute.name,
           path: '/main-page',
           children: [
-            _i12.RouteConfig(
+            _i13.RouteConfig(
               HomeTabRouter.name,
               path: 'home-tab',
               parent: MainRoute.name,
               children: [
-                _i12.RouteConfig(
+                _i13.RouteConfig(
                   HomeRoute.name,
                   path: '',
                   parent: HomeTabRouter.name,
                 )
               ],
             ),
-            _i12.RouteConfig(
+            _i13.RouteConfig(
               SearchTabRouter.name,
               path: 'search-tab',
               parent: MainRoute.name,
               children: [
-                _i12.RouteConfig(
+                _i13.RouteConfig(
                   SearchRoute.name,
                   path: '',
                   parent: SearchTabRouter.name,
                 )
               ],
             ),
-            _i12.RouteConfig(
+            _i13.RouteConfig(
               MyProfileTabRouter.name,
               path: 'my-profile-tab',
               parent: MainRoute.name,
               children: [
-                _i12.RouteConfig(
+                _i13.RouteConfig(
                   MyProfileRoute.name,
                   path: '',
                   parent: MyProfileTabRouter.name,
@@ -166,32 +174,36 @@ class AppRouter extends _i12.RootStackRouter {
             ),
           ],
         ),
-        _i12.RouteConfig(
+        _i13.RouteConfig(
           OnboardingRoute.name,
           path: '/onboarding-page',
         ),
-        _i12.RouteConfig(
+        _i13.RouteConfig(
           WelcomeRoute.name,
           path: '/welcome-page',
         ),
-        _i12.RouteConfig(
+        _i13.RouteConfig(
           SignInRoute.name,
           path: '/sign-in-page',
         ),
-        _i12.RouteConfig(
+        _i13.RouteConfig(
           SignUpRoute.name,
           path: '/sign-up-page',
         ),
-        _i12.RouteConfig(
+        _i13.RouteConfig(
           ForgotPasswordRoute.name,
           path: '/forgot-password-page',
+        ),
+        _i13.RouteConfig(
+          FavouritesRoute.name,
+          path: '/favourites-page',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.SplashPage]
-class SplashRoute extends _i12.PageRouteInfo<void> {
+class SplashRoute extends _i13.PageRouteInfo<void> {
   const SplashRoute()
       : super(
           SplashRoute.name,
@@ -203,8 +215,8 @@ class SplashRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.MainPage]
-class MainRoute extends _i12.PageRouteInfo<void> {
-  const MainRoute({List<_i12.PageRouteInfo>? children})
+class MainRoute extends _i13.PageRouteInfo<void> {
+  const MainRoute({List<_i13.PageRouteInfo>? children})
       : super(
           MainRoute.name,
           path: '/main-page',
@@ -216,7 +228,7 @@ class MainRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.OnboardingPage]
-class OnboardingRoute extends _i12.PageRouteInfo<void> {
+class OnboardingRoute extends _i13.PageRouteInfo<void> {
   const OnboardingRoute()
       : super(
           OnboardingRoute.name,
@@ -228,7 +240,7 @@ class OnboardingRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.WelcomePage]
-class WelcomeRoute extends _i12.PageRouteInfo<void> {
+class WelcomeRoute extends _i13.PageRouteInfo<void> {
   const WelcomeRoute()
       : super(
           WelcomeRoute.name,
@@ -240,8 +252,8 @@ class WelcomeRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.SignInPage]
-class SignInRoute extends _i12.PageRouteInfo<SignInRouteArgs> {
-  SignInRoute({_i13.Key? key})
+class SignInRoute extends _i13.PageRouteInfo<SignInRouteArgs> {
+  SignInRoute({_i14.Key? key})
       : super(
           SignInRoute.name,
           path: '/sign-in-page',
@@ -254,7 +266,7 @@ class SignInRoute extends _i12.PageRouteInfo<SignInRouteArgs> {
 class SignInRouteArgs {
   const SignInRouteArgs({this.key});
 
-  final _i13.Key? key;
+  final _i14.Key? key;
 
   @override
   String toString() {
@@ -264,7 +276,7 @@ class SignInRouteArgs {
 
 /// generated route for
 /// [_i6.SignUpPage]
-class SignUpRoute extends _i12.PageRouteInfo<void> {
+class SignUpRoute extends _i13.PageRouteInfo<void> {
   const SignUpRoute()
       : super(
           SignUpRoute.name,
@@ -276,8 +288,8 @@ class SignUpRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.ForgotPasswordPage]
-class ForgotPasswordRoute extends _i12.PageRouteInfo<ForgotPasswordRouteArgs> {
-  ForgotPasswordRoute({_i13.Key? key})
+class ForgotPasswordRoute extends _i13.PageRouteInfo<ForgotPasswordRouteArgs> {
+  ForgotPasswordRoute({_i14.Key? key})
       : super(
           ForgotPasswordRoute.name,
           path: '/forgot-password-page',
@@ -290,7 +302,7 @@ class ForgotPasswordRoute extends _i12.PageRouteInfo<ForgotPasswordRouteArgs> {
 class ForgotPasswordRouteArgs {
   const ForgotPasswordRouteArgs({this.key});
 
-  final _i13.Key? key;
+  final _i14.Key? key;
 
   @override
   String toString() {
@@ -299,9 +311,21 @@ class ForgotPasswordRouteArgs {
 }
 
 /// generated route for
-/// [_i8.EmptyRouterPage]
-class HomeTabRouter extends _i12.PageRouteInfo<void> {
-  const HomeTabRouter({List<_i12.PageRouteInfo>? children})
+/// [_i8.FavouritesPage]
+class FavouritesRoute extends _i13.PageRouteInfo<void> {
+  const FavouritesRoute()
+      : super(
+          FavouritesRoute.name,
+          path: '/favourites-page',
+        );
+
+  static const String name = 'FavouritesRoute';
+}
+
+/// generated route for
+/// [_i9.EmptyRouterPage]
+class HomeTabRouter extends _i13.PageRouteInfo<void> {
+  const HomeTabRouter({List<_i13.PageRouteInfo>? children})
       : super(
           HomeTabRouter.name,
           path: 'home-tab',
@@ -312,9 +336,9 @@ class HomeTabRouter extends _i12.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.EmptyRouterPage]
-class SearchTabRouter extends _i12.PageRouteInfo<void> {
-  const SearchTabRouter({List<_i12.PageRouteInfo>? children})
+/// [_i9.EmptyRouterPage]
+class SearchTabRouter extends _i13.PageRouteInfo<void> {
+  const SearchTabRouter({List<_i13.PageRouteInfo>? children})
       : super(
           SearchTabRouter.name,
           path: 'search-tab',
@@ -325,9 +349,9 @@ class SearchTabRouter extends _i12.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.EmptyRouterPage]
-class MyProfileTabRouter extends _i12.PageRouteInfo<void> {
-  const MyProfileTabRouter({List<_i12.PageRouteInfo>? children})
+/// [_i9.EmptyRouterPage]
+class MyProfileTabRouter extends _i13.PageRouteInfo<void> {
+  const MyProfileTabRouter({List<_i13.PageRouteInfo>? children})
       : super(
           MyProfileTabRouter.name,
           path: 'my-profile-tab',
@@ -338,8 +362,8 @@ class MyProfileTabRouter extends _i12.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.HomePage]
-class HomeRoute extends _i12.PageRouteInfo<void> {
+/// [_i10.HomePage]
+class HomeRoute extends _i13.PageRouteInfo<void> {
   const HomeRoute()
       : super(
           HomeRoute.name,
@@ -350,8 +374,8 @@ class HomeRoute extends _i12.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.SearchPage]
-class SearchRoute extends _i12.PageRouteInfo<void> {
+/// [_i11.SearchPage]
+class SearchRoute extends _i13.PageRouteInfo<void> {
   const SearchRoute()
       : super(
           SearchRoute.name,
@@ -362,8 +386,8 @@ class SearchRoute extends _i12.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.MyProfilePage]
-class MyProfileRoute extends _i12.PageRouteInfo<void> {
+/// [_i12.MyProfilePage]
+class MyProfileRoute extends _i13.PageRouteInfo<void> {
   const MyProfileRoute()
       : super(
           MyProfileRoute.name,

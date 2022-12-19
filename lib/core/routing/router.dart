@@ -11,6 +11,7 @@ import '../../view/pages/sign_in_page/sign_in_page.dart';
 import '../../view/pages/sign_up_page/sign_up_page.dart';
 import '../../view/pages/splash_page/splash_page.dart';
 import '../../view/pages/welcome_page/welcome_page.dart';
+import '../../view/pages/main_page/favourites_page/favourites_page.dart';
 
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -28,7 +29,7 @@ import '../../view/pages/welcome_page/welcome_page.dart';
       AutoRoute(
         path: "search-tab",
         name: "SearchTabRouter",
-        page: EmptyRouterPage ,
+        page: EmptyRouterPage,
         children: [
           AutoRoute(path: "", page: SearchPage),
         ],
@@ -47,6 +48,7 @@ import '../../view/pages/welcome_page/welcome_page.dart';
     AutoRoute(page: SignInPage),
     AutoRoute(page: SignUpPage),
     AutoRoute(page: ForgotPasswordPage),
+    AutoRoute(page: FavouritesPage),
   ],
 )
 class $AppRouter {}

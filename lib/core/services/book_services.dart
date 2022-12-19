@@ -4,11 +4,14 @@ import 'package:kitapp/core/enums/collection_name.dart';
 import 'package:kitapp/core/global_providers/global_providers.dart';
 
 import '../global_models/book_model/book_model.dart';
+import '../init/auth_manager/auth_manager.dart';
 
 abstract class IBookServices {
   Future<List<BookModel>> getEditorsChoice();
 
   Future<List<BookModel>> getTopSellers();
+
+  Future<List<BookModel>> getMyFavouriteBooks();
 }
 
 class BookServices extends IBookServices {
@@ -46,6 +49,27 @@ class BookServices extends IBookServices {
         topSellersList.add(bookModel);
       }
       return topSellersList;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<BookModel>> getMyFavouriteBooks() async {
+    final currentUser = ref
+        .watch(authManagerProvider.select((value) => value.currentUserModel));
+    List<BookModel> favouriteBooksList = [];
+    try {
+      final querySnapshot = await _firestore
+          .collection(CollectionName.users.name)
+          .doc(currentUser!.uid)
+          .collection(CollectionName.favouriteBooks.name)
+          .get();
+      for (var doc in querySnapshot.docs) {
+        BookModel bookModel = BookModel.fromMap(doc.data());
+        favouriteBooksList.add(bookModel);
+      }
+      return favouriteBooksList;
     } catch (_) {
       rethrow;
     }
