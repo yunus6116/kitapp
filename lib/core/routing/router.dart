@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
+import 'package:kitapp/view/pages/book_detail_page/book_detail_page.dart';
+import 'package:kitapp/view/pages/webview_page/webview_page.dart';
 
 import '../../view/pages/forgot_password_page/forgot_password_page.dart';
 import '../../view/pages/main_page/home_page/home_page.dart';
@@ -49,6 +51,8 @@ import '../../view/pages/main_page/favourites_page/favourites_page.dart';
     AutoRoute(page: SignUpPage),
     AutoRoute(page: ForgotPasswordPage),
     AutoRoute(page: FavouritesPage),
+    AutoRoute(page: BookDetailPage),
+    AutoRoute(page: WebViewPage),
   ],
 )
 class $AppRouter {}

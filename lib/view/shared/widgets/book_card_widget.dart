@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:kitapp/core/routing/router.gr.dart';
 import 'package:kitapp/view/shared/widgets/shimmers/shimmer_effect.dart';
 
 import '../../../core/global_models/book_model/book_model.dart';
@@ -17,7 +19,9 @@ class BookCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        context.router.navigate(BookDetailRoute(book: bookModel));
+      },
       child: Column(
         children: [
           Container(

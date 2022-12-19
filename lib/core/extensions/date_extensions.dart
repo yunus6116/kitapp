@@ -10,4 +10,9 @@ extension DateExtensions on DateTime {
     final DateFormat formatter = DateFormat('dd/MM/yyyy');
     return formatter.format(this);
   }
+
+  String get formatDateUSA {
+    final DateFormat formatter = DateFormat('yyyy-MM-dd');
+    return formatter.format(this);
+  }
 }
