@@ -32,10 +32,13 @@ class _SearchPageState extends State<SearchPage> {
             controller: _controller,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search),
-              suffixIcon: IconButton(
-                icon: searchItem.isEmpty ?  AppIcons(iconType: IconType.clear_text_icon,
-                iconColor: context.theme.canvasColor, width: 20,) : const AppIcons(iconType: IconType.clear_text_icon,
-                iconColor: Color(0xff4D506C), width: 20,),
+              suffixIcon: searchItem.isEmpty
+                    ? null : IconButton(
+                icon: const AppIcons(
+                        iconType: IconType.clear_text_icon,
+                        iconColor: Color(0xff4D506C),
+                        width: 20,
+                      ),
                 onPressed: () {
                   setState(() {
                     searchItem = '';
@@ -91,7 +94,7 @@ Widget getCategories() {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 54, 54, 54),
+                        color: const Color.fromARGB(255, 54, 54, 54),
                         image: DecorationImage(
                           colorFilter: ColorFilter.mode(
                               Colors.black.withOpacity(0.6), BlendMode.dstATop),
@@ -129,7 +132,7 @@ Widget getCategoryName(ref) {
     'history': 'History',
     'scienceFiction': 'Science Fiction',
   };
-  String? categoryName = 'Category Name Here!';
+  String? categoryName = 'Classics';
   var name = ref.id;
   for (String i in categoryMapping.keys) {
     if (i == name) {
