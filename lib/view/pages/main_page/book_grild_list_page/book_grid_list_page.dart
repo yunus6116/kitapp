@@ -42,7 +42,9 @@ class _BookGridListPageState extends ConsumerState<BookGridListPage> {
             fontWeight: FontWeight.w800,
             color: AppColors.primary),
       ),
-      body: BooksGridWidget(bookList: widget.bookList ?? myFavouriteBooksList),
+      body: BooksGridWidget(
+          bookList: widget.bookList ?? myFavouriteBooksList,
+          isBookCategoryPage: widget.bookList != null ? true : false),
     );
   }
 }

@@ -12,9 +12,11 @@ class BookCardWidget extends StatelessWidget {
   const BookCardWidget({
     Key? key,
     required this.bookModel,
+    this.isBookCategoryPage = false,
   }) : super(key: key);
 
   final BookModel bookModel;
+  final bool isBookCategoryPage;
 
   @override
   Widget build(BuildContext context) {
@@ -66,24 +68,26 @@ class BookCardWidget extends StatelessWidget {
                           ),
                           child: Align(
                             alignment: Alignment.bottomCenter,
-                            child: Container(
-                                width: double.infinity,
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 12),
-                                decoration: BoxDecoration(
-                                  color: AppColors.primary,
-                                  borderRadius: BorderRadius.circular(33),
-                                ),
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 4.0),
-                                  child: Text(
-                                    bookModel.category ?? 'Category',
-                                    textAlign: TextAlign.center,
-                                    style: AppTextStyles.body8
-                                        .copyWith(color: Colors.white),
-                                  ),
-                                )),
+                            child: isBookCategoryPage
+                                ? const SizedBox.shrink()
+                                : Container(
+                                    width: double.infinity,
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 12),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.primary,
+                                      borderRadius: BorderRadius.circular(33),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 4.0),
+                                      child: Text(
+                                        bookModel.category ?? 'Category',
+                                        textAlign: TextAlign.center,
+                                        style: AppTextStyles.body8
+                                            .copyWith(color: Colors.white),
+                                      ),
+                                    )),
                           ),
                         ),
                       ),

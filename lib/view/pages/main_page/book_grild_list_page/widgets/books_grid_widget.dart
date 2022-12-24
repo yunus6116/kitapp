@@ -7,9 +7,11 @@ class BooksGridWidget extends StatelessWidget {
   const BooksGridWidget({
     Key? key,
     required this.bookList,
+    this.isBookCategoryPage = false,
   }) : super(key: key);
 
   final List<BookModel> bookList;
+  final bool isBookCategoryPage;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -25,6 +27,7 @@ class BooksGridWidget extends StatelessWidget {
             itemBuilder: ((context, index) {
               return BookCardWidget(
                 bookModel: bookList[index],
+                isBookCategoryPage: isBookCategoryPage,
               );
             }),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
