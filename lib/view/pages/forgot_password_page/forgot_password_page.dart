@@ -10,7 +10,8 @@ import '../../shared/widgets/controlled_textfield.dart';
 import '../../../core/extensions/string_extensions.dart';
 
 class ForgotPasswordPage extends HookConsumerWidget {
-  ForgotPasswordPage({super.key});
+  final String? title;
+  ForgotPasswordPage({this.title, super.key});
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -20,7 +21,7 @@ class ForgotPasswordPage extends HookConsumerWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Forgot Password',
+        title: title ?? 'Forgot Password',
       ),
       body: SafeArea(
         child: Padding(

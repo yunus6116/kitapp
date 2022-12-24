@@ -24,7 +24,7 @@ class BannerSliderWidget extends HookWidget {
           height: MediaQuery.of(context).size.height * .22,
           width: double.infinity,
           child: CarouselSlider.builder(
-            itemCount: 4,
+            itemCount: sliderList.length,
             options: CarouselOptions(
               autoPlay: true,
               enlargeCenterPage: true,
