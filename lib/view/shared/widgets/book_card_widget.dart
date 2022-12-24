@@ -28,7 +28,7 @@ class BookCardWidget extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.only(right: 4),
-            height: MediaQuery.of(context).size.height * .16,
+            height: MediaQuery.of(context).size.height * .15,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
             ),
@@ -45,7 +45,7 @@ class BookCardWidget extends StatelessWidget {
                     return Material(
                       type: MaterialType.transparency,
                       child: SizedBox(
-                        height: MediaQuery.of(context).size.height * .16,
+                        height: MediaQuery.of(context).size.height * .15,
                         width: MediaQuery.of(context).size.width * .3,
                         child: Container(
                           padding: const EdgeInsets.only(bottom: 5),
