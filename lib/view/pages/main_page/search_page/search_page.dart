@@ -95,6 +95,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 ),
           hintText: 'Search for books or authors',
           prefixIconColor: context.theme.secondaryHeaderColor,
+          contentPadding: EdgeInsets.zero,
         ),
         onChanged: (val) {
           setState(() {
