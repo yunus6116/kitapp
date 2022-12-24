@@ -166,7 +166,7 @@ class _BookDetailPageState extends ConsumerState<BookDetailPage> {
                   Text(
                     'About Book',
                     style: AppTextStyles.body6
-                        .copyWith(fontWeight: FontWeight.w700),
+                        .copyWith(fontWeight: FontWeight.w700, fontSize: 17),
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -178,7 +178,7 @@ class _BookDetailPageState extends ConsumerState<BookDetailPage> {
                   Text(
                     'Book Propertys',
                     style: AppTextStyles.body6
-                        .copyWith(fontWeight: FontWeight.w700),
+                        .copyWith(fontWeight: FontWeight.w700, fontSize: 17),
                   ),
                   const SizedBox(height: 8),
                   Row(
