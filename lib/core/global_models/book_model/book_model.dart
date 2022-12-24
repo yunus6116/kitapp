@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../date_model.dart';
 
 class BookModel {
+  String? id;
   String? aboutBook;
   String? author;
   String? bookUrl;
@@ -24,9 +25,11 @@ class BookModel {
     this.pages,
     this.releaseDate,
     this.star,
+    this.id,
   });
 
   BookModel copyWith({
+    String? id,
     String? aboutBook,
     String? author,
     String? bookUrl,
@@ -39,6 +42,7 @@ class BookModel {
     double? star,
   }) {
     return BookModel(
+      id: id ?? this.id,
       aboutBook: aboutBook ?? this.aboutBook,
       author: author ?? this.author,
       bookUrl: bookUrl ?? this.bookUrl,
@@ -54,6 +58,7 @@ class BookModel {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'id': id,
       'aboutBook': aboutBook,
       'author': author,
       'bookUrl': bookUrl,
@@ -69,6 +74,7 @@ class BookModel {
 
   factory BookModel.fromMap(Map<String, dynamic> map) {
     return BookModel(
+      id: map['id'] != null ? map['id'] as String : null,
       aboutBook: map['aboutBook'] != null ? map['aboutBook'] as String : null,
       author: map['author'] != null ? map['author'] as String : null,
       bookUrl: map['bookUrl'] != null ? map['bookUrl'] as String : null,
