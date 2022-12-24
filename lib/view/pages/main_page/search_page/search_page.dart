@@ -95,7 +95,6 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 ),
           hintText: 'Search for books or authors',
           prefixIconColor: context.theme.secondaryHeaderColor,
-          contentPadding: EdgeInsets.zero,
         ),
         onChanged: (val) {
           setState(() {
@@ -175,14 +174,20 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                             fontSize: 16,
                             fontWeight: FontWeight.normal),
                       ),
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(data['coverImageUrl']),
+                      leading: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          minHeight: 44,
+                          maxHeight: 64,
+                          maxWidth: 64,
+                          minWidth: 44,
+                        ),
+                        child: Image.network(data['coverImageUrl']),
                       ),
                     );
                   }
                   //For the books/authors that does not match with searchItem
                   else {
-                    return Container();
+                    return const SizedBox();
                   }
                 },
               ),
