@@ -40,8 +40,7 @@ class MyProfilePage extends HookConsumerWidget {
               endIndent: 20,
               thickness: 0.1,
             ),
-            buildButton("Change Password", "profile_change_password", context,
-                isChangePassword: true),
+            buildButton("Change Password", "profile_change_password", context),
             Expanded(
                 child: Align(
               alignment: Alignment.bottomCenter,
@@ -89,8 +88,7 @@ Widget buildName(PublicUser? user) => Column(
       ],
     );
 
-Widget buildButton(String title, String iconName, BuildContext context,
-        {bool isChangePassword = false}) =>
+Widget buildButton(String title, String iconName, BuildContext context) =>
     Column(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,13 +103,8 @@ Widget buildButton(String title, String iconName, BuildContext context,
           borderRadius: 11,
           width: MediaQuery.of(context).size.width - 40,
           onPressed: () async {
-            if (isChangePassword) {
-              await context.router
-                  .navigate(ForgotPasswordRoute(title: 'Change Password'));
-            } else {
-              await context.router
-                  .navigate(BookGridListRoute(title: "My Favourite Books"));
-            }
+            await context.router
+                .navigate(BookGridListRoute(title: "My Favourite Books"));
           },
         ),
       ],
