@@ -40,7 +40,7 @@ class BooksListWidget extends StatelessWidget {
                         }))),
               )
             : SizedBox(
-                height: MediaQuery.of(context).size.height * .2,
+                height: MediaQuery.of(context).size.height * .22,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
