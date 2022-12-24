@@ -12,6 +12,11 @@ abstract class IBookServices {
   Future<List<BookModel>> getTopSellers();
 
   Future<List<BookModel>> getMyFavouriteBooks();
+
+  Future<void> addBookToFavourites({required BookModel bookModel});
+
+  Future<void> removeBookFromFavourites({required BookModel bookModel});
+  Future<bool> isBookFavourite({required String bookId});
 }
 
 class BookServices extends IBookServices {
@@ -71,6 +76,57 @@ class BookServices extends IBookServices {
       }
       return favouriteBooksList;
     } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> addBookToFavourites({required BookModel bookModel}) async {
+    final currentUser = ref
+        .watch(authManagerProvider.select((value) => value.currentUserModel));
+
+    try {
+      await _firestore
+          .collection(CollectionName.users.name)
+          .doc(currentUser!.uid)
+          .collection(CollectionName.favouriteBooks.name)
+          .doc(bookModel.id)
+          .set(bookModel.toMap());
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> removeBookFromFavourites({required BookModel bookModel}) async {
+    final currentUser = ref
+        .watch(authManagerProvider.select((value) => value.currentUserModel));
+
+    try {
+      await _firestore
+          .collection(CollectionName.users.name)
+          .doc(currentUser!.uid)
+          .collection(CollectionName.favouriteBooks.name)
+          .doc(bookModel.id)
+          .delete();
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<bool> isBookFavourite({required String bookId}) async {
+    final currentUser = ref
+        .watch(authManagerProvider.select((value) => value.currentUserModel));
+    CollectionReference favouritesCollection = _firestore
+        .collection(CollectionName.users.name)
+        .doc(currentUser!.uid)
+        .collection(CollectionName.favouriteBooks.name);
+    try {
+      final querySnapshot =
+          await favouritesCollection.where('id', isEqualTo: bookId).get();
+      return querySnapshot.docs.isNotEmpty ? true : false;
+    } catch (e) {
       rethrow;
     }
   }
