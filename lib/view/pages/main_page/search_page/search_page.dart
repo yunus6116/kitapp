@@ -33,34 +33,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
       )),
       body: Column(
         children: [
-          TextField(
-            controller: _controller,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.search),
-              suffixIcon: searchItem.isEmpty
-                  ? null
-                  : IconButton(
-                      icon: const AppIcons(
-                        iconType: IconType.clearTextIcon,
-                        iconColor: Color(0xff4D506C),
-                        width: 20,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          searchItem = '';
-                          _controller.clear();
-                        });
-                      },
-                    ),
-              hintText: 'Search for books or authors',
-              prefixIconColor: context.theme.secondaryHeaderColor,
-            ),
-            onChanged: (val) {
-              setState(() {
-                searchItem = val;
-              });
-            },
-          ),
+          searchBar(context),
           FutureBuilder(
             future: FirebaseFirestore.instance.collection('books').get(),
             builder: (context, snapshot) {
@@ -87,6 +60,58 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           ),
         ],
       ),
+    );
+  }
+
+  Container searchBar(BuildContext context) {
+    var textFieldLRMargin = MediaQuery.of(context).size.width / 18.75;
+    var textFieldTMargin = MediaQuery.of(context).size.width / 59.19;
+    var textFieldBMargin = MediaQuery.of(context).size.width / 39.46; //39.46
+    var textFieldHeight = MediaQuery.of(context).size.height / 18.68; //23.68
+    return Container(
+      margin: EdgeInsets.fromLTRB(textFieldLRMargin, textFieldTMargin,
+          textFieldLRMargin, textFieldBMargin),
+      height: textFieldHeight,
+      child: TextField(
+        controller: _controller,
+        decoration: InputDecoration(
+          enabledBorder: textFieldBorder(),
+          focusedBorder: textFieldBorder(),
+          prefixIcon: const Icon(Icons.search),
+          suffixIcon: searchItem.isEmpty
+              ? null
+              : IconButton(
+                  icon: const AppIcons(
+                    iconType: IconType.clearTextIcon,
+                    iconColor: Color(0xff4D506C),
+                    width: 20,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      searchItem = '';
+                      _controller.clear();
+                    });
+                  },
+                ),
+          hintText: 'Search for books or authors',
+          prefixIconColor: context.theme.secondaryHeaderColor,
+        ),
+        onChanged: (val) {
+          setState(() {
+            searchItem = val;
+          });
+        },
+      ),
+    );
+  }
+
+  OutlineInputBorder textFieldBorder() {
+    return OutlineInputBorder(
+      borderSide: const BorderSide(
+        color: Color(0xff4D506C),
+        width: 1,
+      ),
+      borderRadius: BorderRadius.circular(8),
     );
   }
 
