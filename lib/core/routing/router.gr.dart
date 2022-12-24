@@ -85,7 +85,10 @@ class AppRouter extends _i15.RootStackRouter {
           orElse: () => const ForgotPasswordRouteArgs());
       return _i15.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i7.ForgotPasswordPage(key: args.key),
+        child: _i7.ForgotPasswordPage(
+          title: args.title,
+          key: args.key,
+        ),
       );
     },
     BookGridListRoute.name: (routeData) {
@@ -330,24 +333,34 @@ class SignUpRoute extends _i15.PageRouteInfo<void> {
 /// generated route for
 /// [_i7.ForgotPasswordPage]
 class ForgotPasswordRoute extends _i15.PageRouteInfo<ForgotPasswordRouteArgs> {
-  ForgotPasswordRoute({_i16.Key? key})
-      : super(
+  ForgotPasswordRoute({
+    String? title,
+    _i16.Key? key,
+  }) : super(
           ForgotPasswordRoute.name,
           path: '/forgot-password-page',
-          args: ForgotPasswordRouteArgs(key: key),
+          args: ForgotPasswordRouteArgs(
+            title: title,
+            key: key,
+          ),
         );
 
   static const String name = 'ForgotPasswordRoute';
 }
 
 class ForgotPasswordRouteArgs {
-  const ForgotPasswordRouteArgs({this.key});
+  const ForgotPasswordRouteArgs({
+    this.title,
+    this.key,
+  });
+
+  final String? title;
 
   final _i16.Key? key;
 
   @override
   String toString() {
-    return 'ForgotPasswordRouteArgs{key: $key}';
+    return 'ForgotPasswordRouteArgs{title: $title, key: $key}';
   }
 }
 

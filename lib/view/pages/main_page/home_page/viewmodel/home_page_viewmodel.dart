@@ -14,10 +14,9 @@ class HomePageVM extends ChangeNotifier {
     router = ref.read(routerProvider);
   }
   List<String> sliderList = [
-    'assets/png/slider.png',
-    'assets/png/slider.png',
-    'assets/png/slider.png',
-    'assets/png/slider.png',
+    'assets/png/slider_1.png',
+    'assets/png/slider_2.png',
+    'assets/png/slider_3.png',
   ];
 
   List<BookModel> editorsChoiceList = [];
