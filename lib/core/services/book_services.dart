@@ -16,7 +16,7 @@ abstract class IBookServices {
   Future<void> addBookToFavourites({required BookModel bookModel});
 
   Future<void> removeBookFromFavourites({required BookModel bookModel});
-  Future<bool> isBookFavourite({required String bookId});
+  Future<bool> isBookFavourite({required BookModel book});
 }
 
 class BookServices extends IBookServices {
@@ -115,7 +115,7 @@ class BookServices extends IBookServices {
   }
 
   @override
-  Future<bool> isBookFavourite({required String bookId}) async {
+  Future<bool> isBookFavourite({required BookModel book}) async {
     final currentUser = ref
         .watch(authManagerProvider.select((value) => value.currentUserModel));
     CollectionReference favouritesCollection = _firestore
@@ -124,7 +124,7 @@ class BookServices extends IBookServices {
         .collection(CollectionName.favouriteBooks.name);
     try {
       final querySnapshot =
-          await favouritesCollection.where('id', isEqualTo: bookId).get();
+          await favouritesCollection.where('id', isEqualTo: book.id).get();
       return querySnapshot.docs.isNotEmpty ? true : false;
     } catch (e) {
       rethrow;

@@ -50,7 +50,7 @@ class _BookDetailPageState extends ConsumerState<BookDetailPage> {
         ? widget.book.releaseDate!.toDate().formatDateUSA
         : 'Not Exist';
     final favouriteStatusProvider =
-        ref.watch(bookFavouritesStatusProvider(widget.book.id!));
+        ref.watch(bookFavouritesStatusProvider(widget.book));
 
     Future<void> onFavouriteIconClick(bool isFavourite) async {
       if (isFavourite) {

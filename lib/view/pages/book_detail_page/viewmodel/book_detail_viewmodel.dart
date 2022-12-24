@@ -17,7 +17,7 @@ class BookDetailVM extends ChangeNotifier {
       await ref
           .read(bookServicesProvider)
           .addBookToFavourites(bookModel: bookModel);
-      refreshBookFavouriteStatus(bookModel.id!);
+      refreshBookFavouriteStatus(bookModel);
     } catch (e) {
       snackBarKey.showSnackBar(error: e);
     }
@@ -28,20 +28,20 @@ class BookDetailVM extends ChangeNotifier {
       await ref
           .read(bookServicesProvider)
           .removeBookFromFavourites(bookModel: bookModel);
-      refreshBookFavouriteStatus(bookModel.id!);
+      refreshBookFavouriteStatus(bookModel);
     } catch (e) {
       snackBarKey.showSnackBar(error: e);
     }
   }
 
-  refreshBookFavouriteStatus(String bookId) {
-    ref.invalidate(bookFavouritesStatusProvider(bookId));
+  refreshBookFavouriteStatus(BookModel book) {
+    ref.invalidate(bookFavouritesStatusProvider(book));
   }
 }
 
 final bookDetailVMProvider = ChangeNotifierProvider((ref) => BookDetailVM(ref));
 
 final bookFavouritesStatusProvider =
-    FutureProvider.family<bool, String>((ref, bookId) async {
-  return await ref.read(bookServicesProvider).isBookFavourite(bookId: bookId);
+    FutureProvider.family<bool, BookModel>((ref, book) async {
+  return await ref.read(bookServicesProvider).isBookFavourite(book: book);
 });
