@@ -192,7 +192,8 @@ class _BookDetailPageState extends ConsumerState<BookDetailPage> {
                         widget.book.pages != null
                             ? widget.book.pages.toString()
                             : 'Not Exist',
-                        style: AppTextStyles.body9,
+                        style: AppTextStyles.body9
+                            .copyWith(fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
@@ -206,7 +207,8 @@ class _BookDetailPageState extends ConsumerState<BookDetailPage> {
                       ),
                       Text(
                         widget.book.language ?? 'Not Exist',
-                        style: AppTextStyles.body9,
+                        style: AppTextStyles.body9
+                            .copyWith(fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
@@ -220,7 +222,8 @@ class _BookDetailPageState extends ConsumerState<BookDetailPage> {
                       ),
                       Text(
                         widget.book.category ?? 'Not Exist',
-                        style: AppTextStyles.body9,
+                        style: AppTextStyles.body9
+                            .copyWith(fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
@@ -234,7 +237,8 @@ class _BookDetailPageState extends ConsumerState<BookDetailPage> {
                       ),
                       Text(
                         releaseDate.toString(),
-                        style: AppTextStyles.body9,
+                        style: AppTextStyles.body9
+                            .copyWith(fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
@@ -250,7 +254,8 @@ class _BookDetailPageState extends ConsumerState<BookDetailPage> {
                         widget.book.star != null
                             ? widget.book.star.toString()
                             : 'Not Exist',
-                        style: AppTextStyles.body9,
+                        style: AppTextStyles.body9
+                            .copyWith(fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
