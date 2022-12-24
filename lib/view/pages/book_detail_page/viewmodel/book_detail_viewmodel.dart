@@ -42,6 +42,6 @@ class BookDetailVM extends ChangeNotifier {
 final bookDetailVMProvider = ChangeNotifierProvider((ref) => BookDetailVM(ref));
 
 final bookFavouritesStatusProvider =
-    FutureProvider.family<bool, BookModel>((ref, book) async {
+    FutureProvider.family.autoDispose<bool, BookModel>((ref, book) async {
   return await ref.read(bookServicesProvider).isBookFavourite(book: book);
 });
