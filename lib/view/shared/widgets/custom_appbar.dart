@@ -12,6 +12,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final Widget? dropdownMenu;
   final Widget? titleWidget;
   final Color? primaryColor;
+  final TextStyle? titleStyle;
 
   CustomAppBar({
     this.onIconPressed,
@@ -24,14 +25,16 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     this.dropdownMenu,
     this.titleWidget,
     this.primaryColor,
+    this.titleStyle,
   });
 
   Widget _buildTitleText(BuildContext context) => Text(
         title ?? "",
-        style: context.textTheme.headline6!.copyWith(
-            fontSize: 17,
-            fontWeight: FontWeight.normal,
-            color: primaryColor ?? context.theme.primaryColorDark),
+        style: titleStyle ??
+            context.textTheme.headline6!.copyWith(
+                fontSize: 17,
+                fontWeight: FontWeight.normal,
+                color: primaryColor ?? context.theme.primaryColorDark),
       );
 
   @override

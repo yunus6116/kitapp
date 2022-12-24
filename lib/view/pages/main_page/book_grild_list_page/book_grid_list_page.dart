@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:kitapp/core/extensions/context_extensions.dart';
 import 'package:kitapp/view/shared/styles/colors.dart';
 import 'package:kitapp/view/shared/widgets/custom_appbar.dart';
 
@@ -36,6 +37,10 @@ class _BookGridListPageState extends ConsumerState<BookGridListPage> {
       appBar: CustomAppBar(
         title: widget.title,
         primaryColor: AppColors.primary,
+        titleStyle: context.textTheme.headline6!.copyWith(
+            fontSize: 17,
+            fontWeight: FontWeight.w800,
+            color: AppColors.primary),
       ),
       body: BooksGridWidget(bookList: widget.bookList ?? myFavouriteBooksList),
     );
